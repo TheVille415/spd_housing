@@ -12,5 +12,6 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def landingPage():
     """Return our landing page to the user."""
-    # Right now, index.html is an empty file that tells us our server is running
+    # Right now, index.html is an empty file that tells
+    # us our server is running
     return render_template("index.html")
