@@ -13,4 +13,7 @@ main = Blueprint("main", __name__)
 def landingPage():
     """Return our landing page to the user."""
     # Right now, index.html is an empty file that tells us our server is running
+
+    test_listing =db.listings.insert_one({'name':"flower"})
+
     return render_template("index.html")
