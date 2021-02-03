@@ -2,6 +2,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
 
+# from bson.objectid import ObjectId
+
 # This is weird flask syntax that intializes our blueprint
 # You'll notice our routes below look like:
 # main.route('/') instead of what you're used to (app.route('/'))
@@ -26,6 +28,7 @@ def landingPage():
 @main.route("/newListing", methods=["POST"])
 def newListing():
     """Add new listing resource to database."""
+    print(request.form.get("numBedrooms"))
     newListing = {
         "numBedrooms": request.form.get("numBedrooms"),
         "sqFootage": request.form.get("sqFootage"),
@@ -45,7 +48,7 @@ def newListing():
 @main.route("/updateListing/<id>", methods=["POST"])
 def updateListing(id):
     """Update existing listing."""
-    updatedListing = db.listings.find_one_and_update(
+    updatedListing = db.listings.update_one(
         {"_id": id},
         {
             "$set": {
