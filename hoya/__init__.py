@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
 mongo = PyMongo(app)
 db = mongo.db
 # Visual studio code comes with a linter that might try to
