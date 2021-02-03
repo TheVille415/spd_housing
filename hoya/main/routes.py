@@ -1,4 +1,5 @@
 """Import packages from Flask for our routes."""
+
 from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
 
@@ -15,10 +16,13 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def landingPage():
     """Return our landing page to the user."""
+
     # Right now, index.html is an empty file that tells
     # us our server is running
     listings = db.listings.find()
     print(list(listings))
+
+    # Right now, index.html is an empty file that tells us our server is running
     return render_template("index.html")
 
 
