@@ -1,5 +1,5 @@
 """Import packages from Flask for our routes."""
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
 
 # This is weird flask syntax that intializes our blueprint
@@ -16,11 +16,25 @@ def landingPage():
     # Right now, index.html is an empty file that tells
     # us our server is running
     listings = db.listings.find()
-    print(listings)
+    print(list(listings))
     return render_template("index.html")
+
+
+# TODO: move listing routes to their own blueprint
 
 
 @main.route("/newListing", methods=["POST"])
 def newListing():
     """Add new listing resource to database."""
-    return
+    newListing = {
+        "numBedrooms": request.form.get("numBedrooms"),
+        "sqFootage": request.form.get("sqFootage"),
+        "numBathrooms": request.form.get("numBathrooms"),
+        "address": {
+            "street": request.form.get("street"),
+            "city": request.form.get("city"),
+            "zip": request.form.get("zip"),
+        },
+    }
+    db.listings.insert_one(newListing)
+    return redirect(url_for("main.newListing"))
