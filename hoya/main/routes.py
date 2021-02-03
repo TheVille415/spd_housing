@@ -37,4 +37,40 @@ def newListing():
         },
     }
     db.listings.insert_one(newListing)
+    # Remove print statements after testing
+    print(f"Inserted successfully! {newListing}")
     return redirect(url_for("main.newListing"))
+
+
+@main.route("/updateListing/<id>", methods=["POST"])
+def updateListing(id):
+    """Update existing listing."""
+    updatedListing = db.listings.find_one_and_update(
+        {"_id": id},
+        {
+            "$set": {
+                "numBedrooms": request.form.get("numBedrooms"),
+                "sqFootage": request.form.get("sqFootage"),
+                "numBathrooms": request.form.get("numBathrooms"),
+                "address": {
+                    "street": request.form.get("street"),
+                    "city": request.form.get("city"),
+                    "zip": request.form.get("zip"),
+                },
+            }
+        },
+    )
+    # Remove print statements after testing
+    print(updatedListing)
+    # In the future it would be nice if we could display the listing
+    # details by id, and show the updated one after the user changes it
+    return redirect(url_for("main.landingPage"))
+
+
+@main.route("/deleteListing/<id>", methods=["POST"])
+def deleteListing(id):
+    """Delete existing listing by id."""
+    db.listings.delete_one({"_id": id})
+    # Remove print statements after testing
+    print("Deleted successfully!")
+    return redirect(url_for("main.landingPage"))
