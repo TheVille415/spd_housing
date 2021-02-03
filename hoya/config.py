@@ -7,5 +7,5 @@ class Config(object):
 
     DEBUG = True
 
-    MONGODB_URI = os.getenv("MONGODB_URI")
+    MONGO_URI = os.getenv("MONGODB_URI")
     # API_KEY = Zillow API key access goes here
