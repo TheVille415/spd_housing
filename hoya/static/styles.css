@@ -1,0 +1,427 @@
+html, body {
+    background-color: #ffffff;
+    margin: 0%;
+    padding: 0%;
+    overflow-y: hidden;
+}
+
+.navbar {
+    background-color: #263F36;
+    outline: none;
+    text-decoration: none;
+    height: min-content;
+    position: sticky;
+}
+.navbar-brand > a {
+    color: #63A58D;
+    text-decoration: none;
+    font-size: 2.5em;
+    transition-duration: 0.4s;
+    font-weight: 700px;
+}
+a:hover {
+    color: #87d3e5;
+}
+
+.navbar-btn {
+    background-color: #87D3E5;
+    border-radius: 50%;
+    border-style: none;
+    height: 4em;
+    width: 4em;
+    margin: 1%;
+    transition-duration: 0.4s;
+}
+.navbar-btn:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.HoyaIntro {
+    margin-top: 5%;
+    height: 100vh;
+    width: 100%;
+}
+.InfoIntro {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hoya-img-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87D3E5;
+    height: 100%;
+    width: 100%;
+}
+.hoya-landing-image {
+    margin-right: -15%;
+    margin-top: 10%;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.info {
+    height: 50vh;
+    width: 80%;
+    background-color: #63A58D;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+.InfoHeader {
+    font-size: 3.5em;
+    text-align: center;
+    font-weight: 550;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    overflow:hidden;
+}
+.info-button-row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5%;
+    border-style: none;
+    height: 50%;
+    width: 50%;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background-color: #87D3E5;
+    margin: .5%;
+}
+.info-button:hover {
+    transition-duration: 0.4s;
+    font-weight: 400;
+    background-color: #9bedff;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/* modal  */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    height: 100vh;
+}
+.modal-content {
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.modal-form{
+    height: auto;
+    width: 100%;
+    padding: 5%;
+}
+.form-container {
+    width: auto;
+    height: 100%;
+    align-self: center;
+}
+
+label {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 100%;
+}
+
+
+h1 {
+    font-size: 28px;
+}
+
+input,
+span{
+    font-family: 'Ubuntu', sans-serif;
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 15px;
+}
+input:focus {
+    outline: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+
+  /* Question */
+
+input.question {
+    font-size: 48px;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 80%;
+    background: rgba(0, 0, 0, 0);
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    /* overflow-x: hidden; Hack to make "rows" attribute apply in Firefox. */
+}
+  /* Underline and Placeholder */
+
+input.question + label{
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    border-top: 1px solid red;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+}
+
+input.question:focus + label {
+    width: 80%;
+}
+
+input.question:focus,
+input.question:valid {
+    padding-top: 35px;
+}
+
+input.question:focus + label > span,
+input.question:valid + label > span {
+    top: -100px;
+    font-size: 22px;
+    color: #333;
+    
+}
+
+input.question:valid + label,
+textarea.question:valid + label {
+    border-color: green;
+}
+
+input.question:invalid,
+textarea.question:invalid {
+    box-shadow: none;
+}
+
+input.question + label > span,
+textarea.question + label > span {
+    font-weight: 300;
+    margin: 0;
+    position: absolute;
+    color: #8F8F8F;
+    font-size: 48px;
+    top: -66px;
+    left: 0px;
+    z-index: -1;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+input[type="submit"] {
+    -webkit-transition: opacity 0.2s ease,  0.2s ease;
+    transition: opacity 0.2s ease, 0.2s ease;
+    display: block;
+    opacity: 0;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #87D3E5;
+    width: 25vw;
+    margin-top: 10%;
+}
+
+input[type="submit"]:hover {
+    background-color: #87D3E5;
+    transition-duration: 0.4s;
+    font-weight: 400;
+    background-color: #9bedff;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type="submit"]:active {
+    background: #999;
+}
+
+input.question:valid ~ input[type="submit"], textarea.question:valid ~ input[type="submit"] {
+    -webkit-animation: appear 1s forwards;
+    animation: appear 1s forwards;
+}
+
+input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input[type="submit"] {
+    display: none;
+}
+
+@-webkit-keyframes appear {
+100% {
+    opacity: 1;
+}
+}
+
+@keyframes appear {
+100% {
+    opacity: 1;
+}
+}
+
+.HoyaContent {
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+    background: #eee !important;
+    overflow: hidden;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #108d6f;
+    border-color: #108d6f;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007b5e;
+    border-color: #007b5e;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+}
+
+.image-flip:hover .backside,
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip:hover .frontside,
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside .card,
+.backside .card {
+    min-height: 312px;
+}
+
+.backside .card a {
+    font-size: 18px;
+    color: #005340!important;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #005340 !important;
+}
+
+.frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+
+footer {
+    background-color: #263F36;
+    height: 10vh;
+    width: 100%;
+}
