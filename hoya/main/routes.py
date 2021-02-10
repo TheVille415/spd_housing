@@ -2,6 +2,8 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
+import requests
+import os
 
 # from bson.objectid import ObjectId
 
@@ -16,14 +18,12 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def landingPage():
     """Return our landing page to the user."""
-
     # Right now, index.html is an empty file that tells
     # us our server is running
     listings = db.listings.find()
-    print(list(listings))
-
+    # Add API call code here to show more listings
     # Right now, index.html is an empty file that tells us our server is running
-    return render_template("index.html")
+    return render_template("index.html", listings=listings)
 
 
 # TODO: move listing routes to their own blueprint
