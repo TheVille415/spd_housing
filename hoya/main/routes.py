@@ -2,7 +2,8 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
-from main.utils import ValuePredictor
+from hoya.main.utils import ValuePredictor
+from bson.objectid import ObjectId
 import requests
 import os
 
@@ -26,16 +27,15 @@ def landingPage():
     return render_template("index.html", listings=listings)
 
 
-@main.route("/predict", methods=["POST"])
-def result():
+@main.route("/predict/<listingId>", methods=["GET"])
+def result(listingId):
     """Call ValuePredictor from utils to predict housing price."""
-    if request.method == "POST":
-        # We're going to need to take just sq foot from user
-        to_predict_list = request.form.to_dict()
-        to_predict_list = list(to_predict_list.values())
-        to_predict_list = list(map(float, to_predict_list))
-        result = ValuePredictor(to_predict_list)
-        prediction = str(result)
+    # We're going to need to take just sq foot from user
+    listing = dict(db.listings.find_one({"_id": ObjectId(listingId)}))
+    print(f"Listing: {listing}")
+    # sqFootage = listing.sqFootage
+    result = ValuePredictor(listing)  # sq foot here
+    prediction = str(result)
     return render_template("predict.html", prediction=prediction)
 
 
