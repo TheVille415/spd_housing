@@ -27,16 +27,16 @@ def landingPage():
     return render_template("index.html", listings=listings)
 
 
-@main.route("/predict/<listingId>", methods=["GET"])
+@main.route("/predict/<ObjectId:listingId>", methods=["GET"])
 def result(listingId):
     """Call ValuePredictor from utils to predict housing price."""
     # We're going to need to take just sq foot from user
-    listing = dict(db.listings.find_one({"_id": ObjectId(listingId)}))
-    print(f"Listing: {listing}")
-    # sqFootage = listing.sqFootage
-    result = ValuePredictor(listing)  # sq foot here
+    listing = dict(db.listings.find_one_or_404({"_id": listingId}))
+    print(f"Listing: {listing['sqFootage']}")
+    sqFootage = listing["sqFootage"]
+    result = ValuePredictor(sqFootage)  # sq foot here
     prediction = str(result)
-    return render_template("predict.html", prediction=prediction)
+    return render_template("index.html", prediction=prediction)
 
 
 # TODO: move listing routes to their own blueprint
