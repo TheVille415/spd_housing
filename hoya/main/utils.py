@@ -8,7 +8,8 @@ def ValuePredictor(to_predict):
     model = keras.models.load_model(
         "/Users/sidneyarcidiacono/Projects/spd_housing/my_model"
     )
-    # keras .predict() methods expect batch of inputs, so let's provide an axis to avoid errors
+    # keras .predict() methods expect batch of inputs, so let's provide an axis
+    # to avoid errors
     prediction_input = tf.expand_dims(int(to_predict), axis=0)
     prediction = model.predict(prediction_input)
     print(f"prediction: {prediction}")
