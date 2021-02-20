@@ -2,10 +2,6 @@
 
 from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
-from hoya.main.utils import ValuePredictor
-from bson.objectid import ObjectId
-import requests
-import os
 
 # from bson.objectid import ObjectId
 
@@ -20,23 +16,14 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def landingPage():
     """Return our landing page to the user."""
+
     # Right now, index.html is an empty file that tells
     # us our server is running
     listings = db.listings.find()
-    # Add API call code here to show more listings
-    return render_template("index.html", listings=listings)
+    print(list(listings))
 
-
-@main.route("/predict/<ObjectId:listingId>", methods=["GET"])
-def result(listingId):
-    """Call ValuePredictor from utils to predict housing price."""
-    # We're going to need to take just sq foot from user
-    listing = dict(db.listings.find_one_or_404({"_id": listingId}))
-    print(f"Listing: {listing['sqFootage']}")
-    sqFootage = listing["sqFootage"]
-    result = ValuePredictor(sqFootage)  # sq foot here
-    prediction = str(result)
-    return render_template("index.html", prediction=prediction)
+    # Right now, index.html is an empty file that tells us our server is running
+    return render_template("index.html")
 
 
 # TODO: move listing routes to their own blueprint
