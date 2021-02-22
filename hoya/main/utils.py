@@ -13,4 +13,4 @@ def ValuePredictor(to_predict):
     prediction_input = tf.expand_dims(int(to_predict), axis=0)
     prediction = model.predict(prediction_input)
     print(f"prediction: {prediction}")
-    return
+    return prediction
