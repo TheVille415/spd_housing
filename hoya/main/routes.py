@@ -23,26 +23,37 @@ def landingPage():
     # Query all listings from the database and pass to landing page.
     # TODO: FE is creating a listings page. We'll render that template, instead
     # with this data
-    listings = db.listings.find()
-    # Add API call code here to show more listings
-    return render_template("index.html", listings=listings)
+    try:
+        listings = db.listings.find()
+        # Add API call code here to show more listings
+        return render_template("index.html", listings=listings)
+    except(404):
+        # Return custom 404 error page, set status code to 404
+        # We use 404 here (rather than 500) because 404 means
+        # "resource not found"
+        return render_template("404.html"), 404
 
 
 @main.route("/predict/<ObjectId:listingId>", methods=["GET"])
 def result(listingId):
     """Call ValuePredictor from utils to predict housing price."""
-    # find our listing by the listingId passed through the params
-    # parse to dict so that Python can work with it
-    listing = dict(db.listings.find_one_or_404({"_id": listingId}))
-    # Access just the square footage value for our prediction model
-    sqFootage = listing["sqFootage"]
-    # Call ValuePredictor from utils to return our prediction
-    result = ValuePredictor(sqFootage)  # sq foot here
-    # Parse to a string for display.
-    prediction = str(result)
-    # Return our index with our prediction passed in to display
-    # TODO: FE team is working on where to display this. Update accordingly.
-    return render_template("index.html", prediction=prediction)
+    try:
+        # find our listing by the listingId passed through the params
+        # parse to dict so that Python can work with it
+        listing = dict(db.listings.find_one_or_404({"_id": listingId}))
+        # Access just the square footage value for our prediction model
+        sqFootage = listing["sqFootage"]
+        # Call ValuePredictor from utils to return our prediction
+        result = ValuePredictor(sqFootage)  # sq foot here
+        # Parse to a string for display.
+        prediction = str(result)
+        # Return our index with our prediction passed in to display
+        # TODO: FE team is working on where to display this.
+        # Update accordingly.
+        return render_template("index.html", prediction=prediction)
+    except(ValueError, TypeError):
+        # Return custom 500 error page, set status code to 500
+        return render_template("500.html"), 500
 
 
 # TODO: move listing routes to their own blueprint
