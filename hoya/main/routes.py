@@ -20,8 +20,9 @@ main = Blueprint("main", __name__)
 @main.route("/")
 def landingPage():
     """Return our landing page to the user."""
-    # Right now, index.html is an empty file that tells
-    # us our server is running
+    # Query all listings from the database and pass to landing page.
+    # TODO: FE is creating a listings page. We'll render that template, instead
+    # with this data
     listings = db.listings.find()
     # Add API call code here to show more listings
     return render_template("index.html", listings=listings)
@@ -30,12 +31,17 @@ def landingPage():
 @main.route("/predict/<ObjectId:listingId>", methods=["GET"])
 def result(listingId):
     """Call ValuePredictor from utils to predict housing price."""
-    # We're going to need to take just sq foot from user
+    # find our listing by the listingId passed through the params
+    # parse to dict so that Python can work with it
     listing = dict(db.listings.find_one_or_404({"_id": listingId}))
-    print(f"Listing: {listing['sqFootage']}")
+    # Access just the square footage value for our prediction model
     sqFootage = listing["sqFootage"]
+    # Call ValuePredictor from utils to return our prediction
     result = ValuePredictor(sqFootage)  # sq foot here
+    # Parse to a string for display.
     prediction = str(result)
+    # Return our index with our prediction passed in to display
+    # TODO: FE team is working on where to display this. Update accordingly.
     return render_template("index.html", prediction=prediction)
 
 
@@ -45,52 +51,68 @@ def result(listingId):
 @main.route("/newListing", methods=["POST"])
 def newListing():
     """Add new listing resource to database."""
-    print(request.form.get("numBedrooms"))
-    newListing = {
-        "numBedrooms": request.form.get("numBedrooms"),
-        "sqFootage": request.form.get("sqFootage"),
-        "numBathrooms": request.form.get("numBathrooms"),
-        "address": {
-            "street": request.form.get("street"),
-            "city": request.form.get("city"),
-            "zip": request.form.get("zip"),
-        },
-    }
-    db.listings.insert_one(newListing)
-    # Remove print statements after testing
-    print(f"Inserted successfully! {newListing}")
-    return redirect(url_for("main.newListing"))
+    try:
+        # Create newListing, initialize with user input from form
+        newListing = {
+            "numBedrooms": request.form.get("numBedrooms"),
+            "sqFootage": request.form.get("sqFootage"),
+            "numBathrooms": request.form.get("numBathrooms"),
+            "address": {
+                "street": request.form.get("street"),
+                "city": request.form.get("city"),
+                "zip": request.form.get("zip"),
+            },
+        }
+        # Call insert_one on listings collection
+        # insert newListing
+        db.listings.insert_one(newListing)
+        # Remove print statements after testing
+        print(f"Inserted successfully! {newListing}")
+        # Redirect back to landing page
+        # TODO: redirect to listings page
+        return redirect(url_for("main.landingPage"))
+    except(ValueError, TypeError):
+        # Return custom 500 error page, set status code to 500
+        return render_template("500.html"), 500
 
 
 @main.route("/updateListing/<id>", methods=["POST"])
 def updateListing(id):
     """Update existing listing."""
-    updatedListing = db.listings.update_one(
-        {"_id": id},
-        {
-            "$set": {
-                "numBedrooms": request.form.get("numBedrooms"),
-                "sqFootage": request.form.get("sqFootage"),
-                "numBathrooms": request.form.get("numBathrooms"),
-                "address": {
-                    "street": request.form.get("street"),
-                    "city": request.form.get("city"),
-                    "zip": request.form.get("zip"),
-                },
-            }
-        },
-    )
-    # Remove print statements after testing
-    print(updatedListing)
     # In the future it would be nice if we could display the listing
     # details by id, and show the updated one after the user changes it
-    return redirect(url_for("main.landingPage"))
+    try:
+        # Call update_one() on listings collection with
+        # user input
+        updatedListing = db.listings.update_one(
+            {"_id": id},
+            {
+                "$set": {
+                    "numBedrooms": request.form.get("numBedrooms"),
+                    "sqFootage": request.form.get("sqFootage"),
+                    "numBathrooms": request.form.get("numBathrooms"),
+                    "address": {
+                        "street": request.form.get("street"),
+                        "city": request.form.get("city"),
+                        "zip": request.form.get("zip"),
+                    },
+                }
+            },
+        )
+        # Once update completed, redirect user to landing page.
+        return redirect(url_for("main.landingPage"))
+    except(ValueError):
+        # Return custom 500 error page, set status code to 500
+        return render_template("500.html"), 500
 
 
 @main.route("/deleteListing/<id>", methods=["POST"])
 def deleteListing(id):
     """Delete existing listing by id."""
-    db.listings.delete_one({"_id": id})
-    # Remove print statements after testing
-    print("Deleted successfully!")
-    return redirect(url_for("main.landingPage"))
+    try:
+        # Call delete_one() on listings collection
+        db.listings.delete_one({"_id": id})
+        return redirect(url_for("main.landingPage"))
+    except(ValueError):
+        # Return custom 500 error page, set status code to 500
+        return render_template("500.html"), 500
