@@ -296,7 +296,7 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
     background-color: white;
     border-radius: 25px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
-
+    overflow: auto;
 }
 .HoyaContent {
     height: 220vh;
@@ -329,14 +329,14 @@ h5{
  .image-card{
     margin: none;
     padding:none;
-    max-height: 450px;
-    min-height:400px;
-}
+    max-height: 500px;
+    min-height:450px;
+ }
 .card-content{
     margin: none;
     padding:20px;
-    max-height: 450px;
-    min-height: 400px;
+    max-height: 500px;
+    min-height: 450px;
 } 
 .card-header{
     background-color: #005340;
@@ -350,6 +350,29 @@ hr{
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
+.list-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    height: 15%;
+    width: 54%;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background-color: #87D3E5;
+    margin: .5%;
+    margin-left: 23%;
+    margin-top: 45px;
+
+    
+}
+.list-button:hover {
+    transition-duration: 0.4s;
+    font-weight: 400;
+    background-color: #9bedff;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
