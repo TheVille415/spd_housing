@@ -24,14 +24,73 @@ def landingPage():
     # TODO: FE is creating a listings page. We'll render that template, instead
     # with this data
     try:
-        listings = db.listings.find()
-        # Add API call code here to show more listings
-        return render_template("index.html", listings=listings)
+        return render_template("index.html")
     except(404):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
         # "resource not found"
         return render_template("404.html"), 404
+
+
+@main.route("/listings")
+def listingsPage():
+    """Display listings by location to user."""
+    # try:
+    # Retrieve listings from Hoya database
+    # TODO: query listings by city based on "search form"
+    listings = db.listings.find()
+    # Retrieve listings from external (realtor) API
+    url = os.getenv("API_URL")
+
+    # TODO: make city dynamic based on "search form"
+    querystring = {
+        "city": "New York City",
+        "limit": "50",
+        "offset": "0",
+        "state_code": "NY",
+        "sort": "relevance"
+    }
+
+    headers = {
+        'x-rapidapi-key': os.getenv("API_KEY"),
+        'x-rapidapi-host': os.getenv("API_HOST")
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+    # For each listing in response["properties"] (excluding metadata)
+    # append to our listings list
+    api_listings = []
+
+    for prop in response["properties"]:
+        sqFootage = None
+        if prop.get("lot_size", None) is None:
+            sqFootage = prop.get("building_size", {}).get("size", None)
+        if prop.get("building_size", None) is None:
+            sqFootage = prop.get("lot_size", {}).get("size", None)
+
+        listing = {
+            "_id": prop["property_id"],
+            "numBedrooms": prop["beds"],
+            "numBathrooms": prop["baths"],
+            "sqFootage": sqFootage,
+            "address": {
+                "city": prop["address"]["city"],
+                "state": prop["address"]["state"],
+                "zip": prop["address"]["postal_code"]
+            }
+        }
+        api_listings.append(listing)
+    print(api_listings)
+    # TODO: come up with stock "house" icon for FE to show with each listings
+    # TODO: pass relevent listing data to FE
+
+    # TODO: check with FE what listings template is called
+    return render_template("index.html", listings=listings)
+    # except(404):
+    #     # Return custom 404 error page, set status code to 404
+    #     # We use 404 here (rather than 500) because 404 means
+    #     # "resource not found"
+    #     return render_template("404.html"), 404
 
 
 @main.route("/predict/<ObjectId:listingId>", methods=["GET"])
