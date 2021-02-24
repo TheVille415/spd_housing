@@ -1,35 +1,36 @@
 html,
 body {
-    background-color: #263F36;
+    background-color: #ffffff;
     margin: 0%;
     padding: 0%;
     overflow-y: hidden;
 }
 
-.landing {
-    background-image: url("https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+.bg-img {
+    background-image: url("./thought-catalog-Nv-vx3kUR2A-unsplash.jpg");
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
-    width: 100%;
+    position: relative;
 }
 
 .navbar {
     outline: none;
     text-decoration: none;
     height: min-content;
+    position: fixed;
 }
 
 .navbar-brand>a {
-    background-color: #4CAF50;
+    color: #2e4b40;
     text-decoration: none;
+    transition-duration: 0.4s;
+    background-color: #4CAF50;
     border-radius: 50%;
     border-style: none;
-    height: 4.5em;
-    width: 4.5em;
-    margin: 1%;
-    transition-duration: 0.4s;
+    height: 5em;
+    width: 5em;
 }
 
 a:hover {
@@ -40,8 +41,8 @@ a:hover {
     background-color: #4CAF50;
     border-radius: 50%;
     border-style: none;
-    height: 4.5em;
-    width: 4.5em;
+    height: 5em;
+    width: 5em;
     margin: 1%;
     transition-duration: 0.4s;
 }
@@ -51,62 +52,55 @@ a:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.HoyaIntro {
-    background-color: rgb(99, 165, 141, .30);
+
+/* .HoyaIntro {
     height: 100vh;
     width: 100%;
 }
 
 .InfoIntro {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 8%;
-    padding-left: 2.5%;
-}
-
-.InfoIntro {
-    display: flex;
     justify-content: left;
-    max-height: 95vh;
-    width: 50%;
+    align-items: center;
+    width: 110%;
+    background-color: rgb(99, 165, 141, 0.3);
 }
 
 .info {
-    height: 55vh;
-    width: 75%;
+    height: 100vh;
+    width: 50%;
     padding: 5%;
-    background-color: rgba(0, 0, 0, 0.11);
-    border-radius: 20px;
-    color: rgb(16, 31, 12);
-    ;
+    padding-top: 17%;
+    justify-content: center;
+    align-items: center;
 }
 
 .InfoHeader {
-    font-size: 3em;
+    font-size: 3.5em;
     text-align: left;
-    font-weight: 100;
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     overflow: hidden;
 }
 
 .info-button-row {
-    width: 100%;
+    width: 50%;
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
 }
 
 .info-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    padding: 1.5%;
     border-style: none;
-    height: 50%;
-    width: 50%;
+    height: 90%;
+    width: 80%;
+    padding: 5%;
     font-size: 1.5rem;
     border-radius: 20px;
     transition-duration: 0.4s;
@@ -119,12 +113,13 @@ a:hover {
     font-weight: 400;
     background-color: #9bedff;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 
 /* modal  */
 
-.modal {
+
+/* .modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -181,8 +176,11 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-
-/* Question */
+footer {
+    background-color: #263F36;
+    height: 10vh;
+    width: 100%;
+}
 
 input.question {
     font-size: 48px;
@@ -193,11 +191,7 @@ input.question {
     width: 80%;
     background: rgba(0, 0, 0, 0);
     transition: padding-top 0.2s ease, margin-top 0.2s ease;
-    /* overflow-x: hidden; Hack to make "rows" attribute apply in Firefox. */
 }
-
-
-/* Underline and Placeholder */
 
 input.question+label {
     display: block;
@@ -305,39 +299,9 @@ textarea.question:invalid~input[type="submit"] {
     width: 100%;
 }
 
-
-/* about page  */
-
-.parallax {
-    background-image: url('https://images-upscaler.icons8.com/uploads/559/7171f450-0443-4810-864d-6255c9dc4edc.jpg');
-    height: 100vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.missionStatement {
-    height: 100%;
-    width: 100%;
-    background-color: rgb(99, 165, 141, .18);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.missionStatementContainer {
-    height: 50%;
-    width: 55%;
-    background-color: rgb(99, 165, 141, .50);
-}
-
-
-/* team section @ About Page  */
-
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 #team {
-    background: white !important;
+    background: #eee !important;
     overflow: hidden;
 }
 
@@ -366,13 +330,9 @@ section .section-title {
     text-transform: uppercase;
 }
 
-.section-title {
-    font-size: 3em;
-}
-
 #team .card {
     border: none;
-    background: white;
+    background: #ffffff;
 }
 
 .image-flip:hover .backside,
@@ -465,45 +425,7 @@ section .section-title {
 .frontside .card .card-body img {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
-}
+    border-radius: 50%; */
 
-footer {
-    background-color: #263F36;
-    height: 5vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    text-decoration: none;
-}
 
-.footer-link-container a {
-    font-weight: 700;
-    font-size: 2vh;
-    text-decoration: none;
-    background-color: transparent;
-    color: #6596a1;
-}
-
-.footer-link-container a:hover {
-    color: rgb(135, 211, 229);
-}
-
-@media only screen and (max-device-width: 1366px) {
-    .parallax {
-        background-attachment: scroll;
-    }
-}
-
-.story {
-    height: auto;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 5%;
-    color: rgba(170, 170, 170, 0.774);
-}
+/* } */
