@@ -25,11 +25,23 @@ def landingPage():
     # with this data
     try:
         return render_template("landing.html")
-    except(404):
+    except(ValueError):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
         # "resource not found"
         return render_template("404.html"), 404
+
+
+@main.route("/contact")
+def contactUs():
+    """Return contact page."""
+    return render_template("contact.html")
+
+
+@main.route("/about")
+def aboutPage():
+    """Return about page."""
+    return render_template("about.html")
 
 
 @main.route("/listings")
@@ -69,9 +81,9 @@ def listingsPage():
             sqFootage = prop.get("lot_size", {}).get("size", None)
 
         listing = {
-            "_id": prop["property_id"],
-            "numBedrooms": prop["beds"],
-            "numBathrooms": prop["baths"],
+            "_id": prop["property_id"] or None,
+            "numBedrooms": prop["beds"] or None,
+            "numBathrooms": prop["baths"] or None,
             "sqFootage": sqFootage,
             "address": {
                 "city": prop["address"]["city"],

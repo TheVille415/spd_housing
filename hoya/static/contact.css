@@ -53,7 +53,7 @@ a:hover {
 }
 
 
-/* .HoyaIntro {
+.HoyaIntro {
     height: 100vh;
     width: 100%;
 }
@@ -113,13 +113,13 @@ a:hover {
     font-weight: 400;
     background-color: #9bedff;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-} */
+}
 
 
 /* modal  */
 
 
-/* .modal {
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -425,7 +425,5 @@ section .section-title {
 .frontside .card .card-body img {
     width: 120px;
     height: 120px;
-    border-radius: 50%; */
-
-
-/* } */
+    border-radius: 50%;
+}
