@@ -24,7 +24,7 @@ def landingPage():
     # TODO: FE is creating a listings page. We'll render that template, instead
     # with this data
     try:
-        return render_template("index.html")
+        return render_template("landing.html")
     except(404):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
