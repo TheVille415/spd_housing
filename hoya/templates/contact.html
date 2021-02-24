@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% include 'modal.html' %}
 <div>
     {% include 'navbar.html' %}
     <div class="contactContainer">
@@ -26,6 +26,7 @@
                 </form>
 
             </div>
-            {% include 'footer.html' %}
+
         </div>
+        {% include 'footer.html' %}
     </div> {% endblock %}

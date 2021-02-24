@@ -1,323 +1,175 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- adobe font  -->
-        <link rel="stylesheet" href="https://use.typekit.net/nsf5juc.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-        <!-- styles  -->
-        <link href="../static/styles.css" rel="stylesheet">
+    <!-- adobe font  -->
+    <link rel="stylesheet" href="https://use.typekit.net/nsf5juc.css">
 
-        <title>HOYA</title>
-    </head>
-    <body>
-        <!--  add listing modal  -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="modal addHouse fade" id="addHouse">
-                        <div class="modal-dialog">
-                            <div class="modal-content "role="document">
-                                <div class="modal-body">
-                                    <div class="row"><button class="btn" data-dismiss="modal">X</button></div>
-                                    <div class="row">
-                                        <form class="modal-form listAHouse" method="POST">
-                                            <div class="form-container">
-                                                <!-- <div class="row"> -->
-                                                <h1>Tell us about your House!</h1>
-                                                <!-- <label for="image"><input type="file"></label> -->
-                                                <input  type="text" name="name" class="question" id="address" required autocomplete="off" />
-                                                <label for="address">What's your Address?<span></span></label>
-                                                <input  type="number" name="name" class="question" id="numBedrooms" required autocomplete="off" />
-                                                <label for="numBedrooms">How many Bathrooms?<span></span></label>
-                                                <input  type="number" name="name" class="question" id="numBathrooms" required autocomplete="off" />
-                                                <label for="numBathrooms">How many Bedrooms?<span></span></label>
-                                                <input  type="number" name="name" class="question" id="sqFootage" required autocomplete="off" />
-                                                <label for="sqFootage">How many Sq. Ft.?<span></span></label>
-                                                <input type="submit" value="List It!" />
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- hoya landing content  -->
+    <!-- styles  -->
+    <link href="../static/styles.css" rel="stylesheet">
+
+    <title>HOYA</title>
+</head>
+
+<body>
+    <!--  add listing modal  -->
+    <div class="container">
         <div class="row">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <div class="container-fluid">
-                    <h2 class="navbar-brand col col-xs-12" ><a href="#">HOYA</a></h2>
-                    <button class="navbar-btn"  data-target="#" href=""><img src="https://img.icons8.com/ios-glyphs/30/000000/house-with-a-garden.png"/></button>
-                    <button class="navbar-btn" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" href=""><img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"/></button>
-                </div>
-            </nav>
-        </div>
-        <div class="container-fluid HoyaIntro">
-            <div class="row hoya-landing-row">
-                <div class="col hoya-img-con">
-                    <img class="hoya-landing-image" style="height: 100%; width: 100%;" src="/static/1.jpg" href="#">
-                </div>
-                <div class="col col-xs-12 InfoIntro">
-                    <div class="row info">
-                        <h2 class="InfoHeader">Real Estate by developers for developers.</h2>
-                        <div class="row info-button-row">
-                            <button class=" info-button" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse">Get Your Estimate!</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid HoyaJumbo">
-            <div class="jumbotron p-3 hoya-jumbo" >
-                <h1 class="display-5">The Hoya Mission!</h1><hr>
-                <p class="lead">Start your journey here! If shopping around for a new place
-                    or just looking, this is the place to start. We here at hoya aren't like big
-                    listing sites, but we think bigger and better. With our information you know
-                    you will be getting the best deal out there!
-                </p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">About us</a>
-                </p>
-            </div>
-        </div>
-        
-
-        <div class="container-fluid HoyaContent ">
-
-            <div class="container  mr-auto ml-auto">
-                <h1 class="listings">
-                    Featured Listings!!
-                </h1>       
-            </div>
-            
-            <div class="container listing-con mr-auto ml-auto mt-4 "> 
-                <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="/static/21.jpg">
-                    </div>
-                
-                    <div class="col-md-6 col-sm-12 card-content">
-                        <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>Bed:</h5><hr>
-                        <h5>Bath:</h5><hr>
-                        <h5>Sq Ft:</h5><hr>
-                        <h5>Address:</h5><hr>
-                    </div>    
-                </div>   
-            </div>
-            <div class="container listing-con mr-auto ml-auto mt-4 "> 
-                <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="/static/21.jpg">
-                    </div>
-                
-                    <div class="col-md-6 col-sm-12 card-content">
-                        <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>Bed:</h5><hr>
-                        <h5>Bath:</h5><hr>
-                        <h5>Sq Ft:</h5><hr>
-                        <h5>Address:</h5><hr>
-                    </div>    
-                </div>   
-            </div>
-            <div class="container listing-con mr-auto ml-auto mt-4 "> 
-                <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="/static/21.jpg">
-                    </div>
-                
-                    <div class="col-md-6 col-sm-12 card-content">
-                        <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>Bed:</h5><hr>
-                        <h5>Bath:</h5><hr>
-                        <h5>Sq Ft:</h5><hr>
-                        <h5>Address:</h5><hr>
-                    </div>    
-                </div>   
-            </div>
-        </div>
-
-        <section id="team" class="pb-5">
-            <div class="container">
-                <h5 class="section-title h1">MEET YOUR TEAM!</h5>
-                <div class="row">
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="..." alt="card image"></p>
-                                            <h4 class="card-title">Samuel Madrigal</h4>
-                                            <p class="card-text">Back End Lead</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+            <div class="col">
+                <div class="modal addHouse fade" id="addHouse">
+                    <div class="modal-dialog">
+                        <div class="modal-content " role="document">
+                            <div class="modal-body">
+                                <div class="row"><button class="btn" data-dismiss="modal">X</button></div>
+                                <div class="row">
+                                    <form class="modal-form listAHouse" method="POST">
+                                        <div class="form-container">
+                                            <!-- <div class="row"> -->
+                                            <h1>Tell us about your House!</h1>
+                                            <!-- <label for="image"><input type="file"></label> -->
+                                            <input type="text" name="name" class="question" id="address" required autocomplete="off" />
+                                            <label for="address">What's your Address?<span></span></label>
+                                            <input type="number" name="name" class="question" id="numBedrooms" required autocomplete="off" />
+                                            <label for="numBedrooms">How many Bathrooms?<span></span></label>
+                                            <input type="number" name="name" class="question" id="numBathrooms" required autocomplete="off" />
+                                            <label for="numBathrooms">How many Bedrooms?<span></span></label>
+                                            <input type="number" name="name" class="question" id="sqFootage" required autocomplete="off" />
+                                            <label for="sqFootage">How many Sq. Ft.?<span></span></label>
+                                            <input type="submit" value="List It!" />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end of Team member -->
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="..." alt="card image"></p>
-                                            <h4 class="card-title">Jordan Torres</h4>
-                                            <p class="card-text">Git Master</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of Team member -->
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="..." alt="card image"></p>
-                                            <h4 class="card-title">Jose Salazar</h4>
-                                            <p class="card-text">Design Lead</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of Team member -->
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="..." alt="card image"></p>
-                                            <h4 class="card-title">Joshua  Riley</h4>
-                                            <p class="card-text">Front End Lead</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of Team member -->
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="..." alt="card image"></p>
-                                            <h4 class="card-title">Sid</h4>
-                                            <p class="card-text">Scrum Master</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of Team member -->
-                    <!-- Team member -->
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="image-flip" >
-                            <div class="mainflip flip-0">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQCTLHLWmBrobpFTsbP5Dwmc_P0hpTTmyXSKKHzUe1jGp84qwgh-XcqRySA&usqp=CAc" alt="card image"></p>
-                                            <h4 class="card-title">Daniel</h4>
-                                            <p class="card-text">Customer Care</p>
-                                            <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="backside">
-                                    <div class="card">
-                                        <div class="card-body text-center mt-4">
-                                            <h4 class="card-title">Hoya!</h4>
-                                            <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of Team member -->
                 </div>
             </div>
-        </section>
-        <footer>
-            <div class="row footer">
+        </div>
+    </div>
+    <!-- hoya landing content  -->
+    <div class="row">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <h2 class="navbar-brand col col-xs-12"><a href="#">HOYA</a></h2>
+                <button class="navbar-btn" data-target="#" href=""><img src="https://img.icons8.com/ios-glyphs/30/000000/house-with-a-garden.png"/></button>
+                <button class="navbar-btn" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" href=""><img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"/></button>
             </div>
-        </footer>
+        </nav>
+    </div>
+    <div class="container-fluid HoyaIntro">
+        <div class="row hoya-landing-row">
+            <div class="col hoya-img-con">
+                <img class="hoya-landing-image" style="height: 100%; width: 100%;" src="/static/1.jpg" href="#">
+            </div>
+            <div class="col col-xs-12 InfoIntro">
+                <div class="row info">
+                    <h2 class="InfoHeader">Real Estate by developers for developers.</h2>
+                    <div class="row info-button-row">
+                        <button class=" info-button" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse">Get Your Estimate!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid HoyaJumbo">
+        <div class="jumbotron p-3 hoya-jumbo">
+            <h1 class="display-5">The Hoya Mission!</h1>
+            <hr>
+            <p class="lead">Start your journey here! If shopping around for a new place or just looking, this is the place to start. We here at hoya aren't like big listing sites, but we think bigger and better. With our information you know you will be getting the best
+                deal out there!
+            </p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">About us</a>
+            </p>
+        </div>
+    </div>
 
 
-    </body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class="container-fluid HoyaContent ">
+
+        <div class="container  mr-auto ml-auto">
+            <h1 class="listings">
+                Featured Listings!!
+            </h1>
+        </div>
+
+        <div class="container listing-con mr-auto ml-auto mt-4 ">
+            <div class="row listing-card d-flex justify-content-center g-0 ">
+                <div class="col-md-6 col-sm-12 image-card">
+                    <img style="height: 100%; width: 100%;" src="/static/21.jpg">
+                </div>
+
+                <div class="col-md-6 col-sm-12 card-content">
+                    <h4 class="card-header p-3 mb-3">Hoya Price</h4>
+                    <h5>Bed:</h5>
+                    <hr>
+                    <h5>Bath:</h5>
+                    <hr>
+                    <h5>Sq Ft:</h5>
+                    <hr>
+                    <h5>Address:</h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="container listing-con mr-auto ml-auto mt-4 ">
+            <div class="row listing-card d-flex justify-content-center g-0 ">
+                <div class="col-md-6 col-sm-12 image-card">
+                    <img style="height: 100%; width: 100%;" src="/static/21.jpg">
+                </div>
+
+                <div class="col-md-6 col-sm-12 card-content">
+                    <h4 class="card-header p-3 mb-3">Hoya Price</h4>
+                    <h5>Bed:</h5>
+                    <hr>
+                    <h5>Bath:</h5>
+                    <hr>
+                    <h5>Sq Ft:</h5>
+                    <hr>
+                    <h5>Address:</h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="container listing-con mr-auto ml-auto mt-4 ">
+            <div class="row listing-card d-flex justify-content-center g-0 ">
+                <div class="col-md-6 col-sm-12 image-card">
+                    <img style="height: 100%; width: 100%;" src="/static/21.jpg">
+                </div>
+
+                <div class="col-md-6 col-sm-12 card-content">
+                    <h4 class="card-header p-3 mb-3">Hoya Price</h4>
+                    <h5>Bed:</h5>
+                    <hr>
+                    <h5>Bath:</h5>
+                    <hr>
+                    <h5>Sq Ft:</h5>
+                    <hr>
+                    <h5>Address:</h5>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="row footer">
+        </div>
+    </footer>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </html>
