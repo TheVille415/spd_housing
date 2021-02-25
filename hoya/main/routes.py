@@ -7,13 +7,7 @@ from bson.objectid import ObjectId
 import requests
 import os
 
-# from bson.objectid import ObjectId
 
-# This is weird flask syntax that intializes our blueprint
-# You'll notice our routes below look like:
-# main.route('/') instead of what you're used to (app.route('/'))
-# We're basically just sectioning off related routes from our app,
-# which will help us preserve readability and maintainability as we scale.
 main = Blueprint("main", __name__)
 
 
