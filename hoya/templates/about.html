@@ -3,12 +3,14 @@
     <div class="parallax">
         <div class="missionStatement">
             <div class="missionStatementContainer">
-
-                <h1>
-                    About
-                </h1>
-                <p>Hoya is an app for developers by developers designed to give you the best market value in current home finding technology. We made it a website too!</p>
-                <button>Learn More!</button>
+                <div class="container-fluid HoyaJumbo">
+                    <div class="jumbotron p-3 hoya-jumbo">
+                        <p class="lead"> If you are looking for a new home, selling your current home or just want to browse great deals... Hoya is perfect for you. and better. With our price prediction model (aka. the Hoya Price Tool) you know you will be getting the
+                            best deal on your current house, and your new one!<a data-toggle="modal" data-target="#addHouse" role="button"> Try the Hoya Price Tool today!</a>
+                        </p>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -51,7 +53,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="./1.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="../static/Jordant.jpg" alt="card image"></p>
                                     <h4 class="card-title">Jordan Torres</h4>
                                     <p class="card-text">Git Master</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -77,7 +79,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="./4.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="../static/4.jpg" alt="card image"></p>
                                     <h4 class="card-title">Jose Salazar</h4>
                                     <p class="card-text">Design Lead</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -103,7 +105,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="./1.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='6.jpg') }}" alt="card image"></p>
                                     <h4 class="card-title">Joshua Riley</h4>
                                     <p class="card-text">Front End Lead</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -129,7 +131,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="./4.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='SId.jpg') }}" alt="card image"></p>
                                     <h4 class="card-title">Sid</h4>
                                     <p class="card-text">Scrum Master</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -177,11 +179,16 @@
         </div>
     </div>
 </section>
-<div class="story">
-    <h1>Our Story</h1>
-    <p>When considering what value we could bring to the world, we wanted something that could be used for the current person. Someone living in covid, looking for a new house, a new opportunity to move out, and live the remove life. Thats why we made Hoya.
-        <br> Hoya is an app for developers by developers designed to give you the best market value in current home finding technology. <br> Our talented team of developers at Hoya have made a home buying experience better than anything you’ve seen before.
-        With a few clicks you’ll be on your way to finding out just how much you’ll be getting for that studio you’re so tired of - with the help of our (patent pending) price prediction algorithm. From there you can see other listings of homes in your
-        area - or far, far away if you need a change. Try Hoya — we’ll get you home.</p>
+<div class="row story-container">
+    <div class="story">
+        <h1>Our Story</h1>
+        <p>We considered what value we could bring to the world. We created something that would benefit people. Covid-19 presented a new way to look for a house to buy, sell, or browse. That is why we made Hoya.
+            <br> Hoya is an app for people made by people who are determined to give you the best market value with the help of our price prediction model.<br> Our talented team of developers at Hoya have made the home buying experience easier to navigate
+            with the goal of you finding a home. In a few clicks you may find out just how much that dust collecting studio is worth.<br> Not looking to sell? You can view listings of homes in your area, or anywhere around the globe.<br>Hoya has your
+            dream home!
+        </p>
+        <button class="story-button">find it!</button>
+    </div>
 </div>
+
 {% include 'footer.html' %} {%endblock%}
