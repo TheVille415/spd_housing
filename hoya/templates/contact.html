@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %} {% include 'modal.html' %}
+<div>
+    {% include 'navbar.html' %}
+    <div class="contactContainer">
+        <div class="contactInfoHeader">
+            <div class="straightned-form">
+                <div class='row '>
+                    <h1>Any Budding Questions?</h1>
+                </div>
+                <form id="my-form-id" method="post" action="https://api.formcake.com/api/form/12c4ae45-a0b6-4391-b53a-8fc7332e6224/submission">
+
+                    <div class="row form">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" required autocomplete="off" />
+
+                        <label for="numBedrooms">Email</label>
+                        <input type="email" name="name" id="numBedrooms" required autocomplete="off" />
+
+                        <label for="subject">Subject</label>
+                        <input type="text" name="name" id="subject" required autocomplete="off" />
+
+                        <label for="message">Message</label>
+                        <input type="text" name="name" id="message" required autocomplete="off" />
+                        <button class="submit-button-form-contact" type="submit" value="Submit">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        {% include 'footer.html' %}
+    </div> {% endblock %}

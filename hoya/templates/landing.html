@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<!--  add listing modal  -->
+<!-- <div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="modal addHouse fade" id="addHouse">
+                <div class="modal-dialog">
+                    <div class="modal-content " role="document">
+                        <div class="modal-body">
+                            <div class="row"><button class="btn" data-dismiss="modal"><img height="50px" width="50px" src="" alt="X"></button></div>
+                            <div class="row">
+                                <form class="modal-form listAHouse" method="POST">
+                                    <div class="form-container"> -->
+<!-- <div class="row"> -->
+<!-- <h1>Tell us about your House!</h1> -->
+<!-- <label for="image"><input type="file"></label> -->
+<!-- <input type="text" name="name" class="question" id="address" required autocomplete="off" />
+                                        <label for="address">What's your Address?<span></span></label>
+                                        <input type="number" name="name" class="question" id="numBedrooms" required autocomplete="off" />
+                                        <label for="numBedrooms">How many Bathrooms?<span></span></label>
+                                        <input type="number" name="name" class="question" id="numBathrooms" required autocomplete="off" />
+                                        <label for="numBathrooms">How many Bedrooms?<span></span></label>
+                                        <input type="number" name="name" class="question" id="sqFootage" required autocomplete="off" />
+                                        <label for="sqFootage">How many Sq. Ft.?<span></span></label>
+                                        <input type="submit" value="List It!" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- hoya landing content  -->
+{% include 'modal.html' %}
+<div class="landing">
+    <div class="row">
+        {% include 'navbar.html' %}
+    </div>
+    <div class="container-fluid HoyaIntro">
+        <div class="row hoya-landing-row">
+            <div class="col InfoIntro">
+                <div class="row InfoIntro">
+                    <div class="row info">
+                        <h2 class="InfoHeader">Hoya offers a unique experience for developers, by providing the best real estate.</h2>
+                        <div class="row info-button-row">
+                            <button class=" info-button" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse">Try Hoya Today!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row fixed-bottom  footer-link-container">
+    {% include 'footer.html' %}
+</div>
+{% endblock %}
