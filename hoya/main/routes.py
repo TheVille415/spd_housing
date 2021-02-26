@@ -4,6 +4,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
 from hoya.main.utils import ValuePredictor
 from bson.objectid import ObjectId
+import random
 import requests
 import os
 
@@ -62,16 +63,17 @@ def listingsPage():
         for prop in response["properties"]:
             sqFootage = None
             if prop.get("lot_size", None) is None:
-                sqFootage = prop.get("building_size", {}).get("size", None)
+                sqFootage = prop.get("building_size", {}).get("size", random.randint(900, 3400))
             if prop.get("building_size", None) is None:
-                sqFootage = prop.get("lot_size", {}).get("size", None)
+                sqFootage = prop.get("lot_size", {}).get("size", random.randint(900, 3400))
 
             listing = {
-                "_id": prop.get("property_id", None),
-                "numBedrooms": prop.get("beds", None),
-                "numBathrooms": prop.get("baths", None),
+                "_id": prop.get("property_id", ObjectId()),
+                "numBedrooms": prop.get("beds", random.randint(1, 5)),
+                "numBathrooms": prop.get("baths", random.randint(1, 5)),
                 "sqFootage": sqFootage,
                 "address": {
+                    # TODO: instead of None, pass in city, state from req.form
                     "city": prop.get("address", {}).get("city", None),
                     "state": prop.get("address", {}).get("state", None),
                     "zip": prop.get("address", {}).get("postal_code", None)
