@@ -75,7 +75,7 @@ def listingsPage():
             listing = {
                 "_id": prop["property_id"] or None,
                 "numBedrooms": prop["beds"] or None,
-                "numBathrooms": prop["baths"] or None,
+                # "numBathrooms": prop["baths"] or None,
                 "sqFootage": sqFootage,
                 "address": {
                     "city": prop["address"]["city"] or None,
@@ -87,7 +87,7 @@ def listingsPage():
         # TODO: come up with stock "house" icon for FE to show with each listing
         # TODO: pass relevent listing data to FE
         # TODO: check with FE what listings template is called
-        return render_template("index.html", listings=listings)
+        return render_template("listings.html", listings=listings)
     except(KeyError):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
