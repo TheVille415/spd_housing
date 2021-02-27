@@ -1,11 +1,14 @@
 <!-- Extends base.html and shows "500, that's a server error. Something went wrong" -->
 <!-- Include button to get back to homepage -->
 {% extends 'base.html' %} {% block content %}
-<h2>Error 505</h2>
-<h3>I'll make sure everything is up and running correctly.</h3>
-<h3>Let’s take you home!</h3>
+<div>
 
-<form action="/">
+  <h2>505 - that means something went wrong</h2>
+  <h3>I'll make sure everything is up and running correctly.</h3>
+  <h3>Let’s take you home!</h3>
+
+  <form action="/">
     <input type="submit" value="Go to Homepage" />
-</form>
+  </form>
+</div>
 {% endblock %}

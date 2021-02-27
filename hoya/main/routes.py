@@ -4,16 +4,11 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from hoya import db
 from hoya.main.utils import ValuePredictor
 from bson.objectid import ObjectId
+import random
 import requests
 import os
 
-# from bson.objectid import ObjectId
 
-# This is weird flask syntax that intializes our blueprint
-# You'll notice our routes below look like:
-# main.route('/') instead of what you're used to (app.route('/'))
-# We're basically just sectioning off related routes from our app,
-# which will help us preserve readability and maintainability as we scale.
 main = Blueprint("main", __name__)
 
 
@@ -36,59 +31,80 @@ def aboutPage():
     return render_template("about.html")
 
 
-@main.route("/listings")
+@main.route("/listings", methods=["GET", "POST"])
 def listingsPage():
     """Display listings by location to user."""
     try:
         # Retrieve listings from Hoya database
         # TODO: query listings by city based on "search form"
-        listings = []
-        listings.append(db.listings.find())
+        # (access w request.form.get())
+        # TODO: expect from front-end: "city" and "stateCode"
+        # Put in place of "city" and "state_code" in querystring
+        # currently initializing to none so I don't get errors
+        city = None
+        stateCode = None
+
+        # initialize listings list
+        # find our listings from our database based on the city we get
+        # from the search form
+        # add to query to filter: {"address": {"city": city}}
+        listings = list(db.listings.find())
+        print(f"Listings after appending db query: {listings}")
+
         # Retrieve listings from external (realtor) API
         url = os.getenv("API_URL")
 
-        # TODO: make city dynamic based on "search form"
         querystring = {
             "city": "New York City",
-            "limit": "50",
+            "limit": "10",
             "offset": "0",
             "state_code": "NY",
-            "sort": "relevance"
+            "sort": "relevance",
         }
 
         headers = {
-            'x-rapidapi-key': os.getenv("API_KEY"),
-            'x-rapidapi-host': os.getenv("API_HOST")
+            "x-rapidapi-key": os.getenv("API_KEY"),
+            "x-rapidapi-host": os.getenv("API_HOST"),
         }
-        response = requests.request("GET", url, headers=headers, params=querystring).json()
+        response = requests.request(
+            "GET", url, headers=headers, params=querystring
+        ).json()
 
         # For each listing in response["properties"] (excluding metadata)
         # append to our listings list
+        # given that our API returns inconsistent data, handle cases where keys
+        # don't exist
 
         for prop in response["properties"]:
             sqFootage = None
             if prop.get("lot_size", None) is None:
-                sqFootage = prop.get("building_size", {}).get("size", None)
+                sqFootage = prop.get("building_size", {}).get(
+                    "size", random.randint(900, 3400)
+                )
             if prop.get("building_size", None) is None:
-                sqFootage = prop.get("lot_size", {}).get("size", None)
+                sqFootage = prop.get("lot_size", {}).get(
+                    "size", random.randint(900, 3400)
+                )
 
             listing = {
-                "_id": prop["property_id"] or None,
-                "numBedrooms": prop["beds"] or None,
-                # "numBathrooms": prop["baths"] or None,
+                "_id": prop.get("property_id", ObjectId()),
+                "numBedrooms": prop.get("beds", random.randint(1, 5)),
+                "numBathrooms": prop.get("baths", random.randint(1, 5)),
                 "sqFootage": sqFootage,
                 "address": {
-                    "city": prop["address"]["city"] or None,
-                    "state": prop["address"]["state"] or None,
-                    "zip": prop["address"]["postal_code"] or None
-                }
+                    # TODO: instead of None, pass in city, state from req.form
+                    "city": prop.get("address", {}).get("city", None),
+                    "state": prop.get("address", {}).get("state", None),
+                    "zip": prop.get("address", {}).get("postal_code", None),
+                },
             }
             listings.append(listing)
-        # TODO: come up with stock "house" icon for FE to show with each listing
+        # TODO: come up with stock "house" icon for FE to show with
+        # each listing
         # TODO: pass relevent listing data to FE
         # TODO: check with FE what listings template is called
         return render_template("listings.html", listings=listings)
-    except(KeyError):
+    except (KeyError, ValueError):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
         # "resource not found"
@@ -108,11 +124,13 @@ def result(listingId):
         result = ValuePredictor(sqFootage)  # sq foot here
         # Parse to a string for display.
         prediction = str(result)
+
+        # Add price to our database documents
+        listing["price"] = prediction
+
         # Return our index with our prediction passed in to display
-        # TODO: FE team is working on where to display this.
-        # Update accordingly.
-        return render_template("index.html", prediction=prediction)
-    except(ValueError, TypeError):
+        return render_template("predict.html", listing=listing)
+    except (ValueError, TypeError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
 
@@ -129,10 +147,11 @@ def newListing():
             "numBedrooms": request.form.get("numBedrooms"),
             "sqFootage": request.form.get("sqFootage"),
             "numBathrooms": request.form.get("numBathrooms"),
+            "price": None,
             "address": {
-                "street": request.form.get("street"),
-                "city": request.form.get("city"),
-                "zip": request.form.get("zip"),
+                "street": request.form.get("address").split(",")[0],
+                "city": request.form.get("address").split(",")[1],
+                "zip": request.form.get("address").split(",")[2],
             },
         }
         # Call insert_one on listings collection
@@ -142,8 +161,10 @@ def newListing():
         print(f"Inserted successfully! {newListing}")
         # Redirect back to landing page
         # TODO: redirect to listings page
-        return redirect(url_for("main.landingPage"))
-    except(ValueError, TypeError):
+        return redirect(
+            url_for("main.predict", listingId=newListing.inserted_id)
+        )
+    except (ValueError, TypeError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
 
@@ -173,7 +194,7 @@ def updateListing(id):
         )
         # Once update completed, redirect user to landing page.
         return redirect(url_for("main.landingPage"))
-    except(ValueError):
+    except (ValueError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
 
@@ -185,6 +206,6 @@ def deleteListing(id):
         # Call delete_one() on listings collection
         db.listings.delete_one({"_id": id})
         return redirect(url_for("main.landingPage"))
-    except(ValueError):
+    except (ValueError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
