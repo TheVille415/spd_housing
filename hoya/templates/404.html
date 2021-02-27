@@ -1,8 +1,8 @@
 <!-- Extends base.html and shows "404 means we couldn't find what you're looking for." -->
 <!-- Include button to get back to homepage -->
 {% extends 'base.html' %} {% block content %}
-<h2>404!?</h2>
-<h3>Oh no! Looking for housing with no homes here!</h3>
+<h2 class="error-heading">404!?</h2>
+<h3 class="error-heading">Oh no! Looking for housing with no homes here!</h3>
 
 <form action="/">
     <input type="submit" value="Go to Homepage" />
