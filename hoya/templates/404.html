@@ -1,6 +1,7 @@
 <!-- Extends base.html and shows "404 means we couldn't find what you're looking for." -->
 <!-- Include button to get back to homepage -->
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}{% block head %}
+<link href="{{ url_for('static', filename='styles/404.css') }}" rel="stylesheet">{% endblock %} {% block content %}
 <!-- <h2 class="error-heading">404!?</h2>
 <h3 class="error-heading">Oh no! Looking for housing with no homes here!</h3>
 
