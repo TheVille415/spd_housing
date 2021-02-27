@@ -6,7 +6,7 @@
     </div>
     <div class="container-fluid HoyaContent ">
         <div class="container  mr-auto ml-auto">
-            <h1 class="listings">
+            <h1 class="listings-header">
                 Hoya Houses
             </h1>
         </div>
@@ -14,18 +14,15 @@
             {% for listing in listings %}
             <div class="container listing-con mr-auto ml-auto mt-4 ">
                 <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="../static/4.jpg">
-                    </div>
                     <div class=" col-md-6 col-sm-12 card-content">
                         <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>{{ listing.numBedrooms }} beds</h5>
+                        <h5>{{ listing.numBedrooms }} bedrooms</h5>
+                        <!-- <hr> -->
+                        <!-- <h5>Bath:</h5> -->
                         <hr>
-                        <h5>Bath:</h5>
+                        <h5>{{ listing.sqFootage }} Sq Ft</h5>
                         <hr>
-                        <h5>{{ listing.sqFootage }} Sq Ft:</h5>
-                        <hr>
-                        <h6>{{ listing.address.city }} {{ listing.address.state }} {{ listing.address.zip }}</h6>
+                        <h6>{{ listing.address.city }}, {{ listing.address.state }}, {{ listing.address.zip }}</h6>
                         <hr>
                         <div class="list-button"> List this house!
                         </div>

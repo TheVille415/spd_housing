@@ -15,14 +15,14 @@
 }
 
 .HoyaContent {
-    height: 220vh;
+    /* height: 220vh; */
     width: 100%;
     background-color: rgb(214, 220, 212);
     padding: 5%;
     overflow: auto;
 }
 
-.listings {
+.listings-header {
     text-align: center;
     color: #007b5e;
     margin-bottom: 50px;
