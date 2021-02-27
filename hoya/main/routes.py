@@ -56,7 +56,7 @@ def listingsPage():
 
         querystring = {
             "city": "New York City",
-            "limit": "50",
+            "limit": "10",
             "offset": "0",
             "state_code": "NY",
             "sort": "relevance",
@@ -87,7 +87,6 @@ def listingsPage():
                 )
 
             listing = {
-
                 "_id": prop.get("property_id", ObjectId()),
                 "numBedrooms": prop.get("beds", random.randint(1, 5)),
                 "numBathrooms": prop.get("baths", random.randint(1, 5)),
@@ -130,9 +129,7 @@ def result(listingId):
         listing["price"] = prediction
 
         # Return our index with our prediction passed in to display
-        # TODO: FE team is working on where to display this.
-        # Update accordingly.
-        return render_template("index.html", prediction=prediction)
+        return render_template("predict.html", listing=listing)
     except (ValueError, TypeError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
@@ -164,7 +161,9 @@ def newListing():
         print(f"Inserted successfully! {newListing}")
         # Redirect back to landing page
         # TODO: redirect to listings page
-        return redirect(url_for("main.landingPage"))
+        return redirect(
+            url_for("main.predict", listingId=newListing.inserted_id)
+        )
     except (ValueError, TypeError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
