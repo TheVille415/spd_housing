@@ -19,16 +19,14 @@
                     </div>
                     <div class=" col-md-6 col-sm-12 card-content">
                         <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>{{ listing.numBedrooms }} beds</h5>
+                        <h5>Beds: {{ listing.numBedrooms }}</h5>
                         <hr>
-                        <h5>Bath:</h5>
+                        <h5>Baths: {{ listing.numBathrooms }}</h5>
                         <hr>
-                        <h5>{{ listing.sqFootage }} Sq Ft:</h5>
+                        <h5>Sq Ft: {{ listing.sqFootage }}</h5>
                         <hr>
-                        <h6>{{ listing.address.city }} {{ listing.address.state }} {{ listing.address.zip }}</h6>
+                        <h6>{{ listing.address.city }}, {{ listing.address.state }} {{ listing.address.zip }}</h6>
                         <hr>
-                        <div class="list-button"> List this house!
-                        </div>
                     </div>
                 </div>
             </div>
