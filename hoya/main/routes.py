@@ -45,10 +45,11 @@ def listingsPage():
         stateCode = None
 
         # initialize listings list
-        listings = []
         # find our listings from our database based on the city we get
         # from the search form
-        listings.append(db.listings.find({"address": {"city": city}}))
+        # add to query to filter: {"address": {"city": city}}
+        listings = list(db.listings.find())
+        print(f"Listings after appending db query: {listings}")
 
         # Retrieve listings from external (realtor) API
         url = os.getenv("API_URL")
@@ -151,9 +152,9 @@ def newListing():
             "numBathrooms": request.form.get("numBathrooms"),
             "price": None,
             "address": {
-                "street": request.form.get("street"),
-                "city": request.form.get("city"),
-                "zip": request.form.get("zip"),
+                "street": request.form.get("address").split(",")[0],
+                "city": request.form.get("address").split(",")[1],
+                "zip": request.form.get("address").split(",")[2],
             },
         }
         # Call insert_one on listings collection
