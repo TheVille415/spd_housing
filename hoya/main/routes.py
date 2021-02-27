@@ -31,72 +31,84 @@ def aboutPage():
     return render_template("about.html")
 
 
-@main.route("/listings", methods=["GET", "POST"])
-def listingsPage():
+@main.route('/listings', methods=["GET", "POST"])
+def listingsQuery():
+    """Render search form in listings.html."""
+    try:
+        if request.method == 'GET':
+            return render_template('queryListing.html')
+        if request.method == 'POST':
+            city = request.form.get('city')
+            print(f"City: {city}")
+            stateCode = request.form.get('stateCode')
+            print(f"State: {stateCode}")
+            return redirect(url_for('main.listingsPage', city=city, stateCode=stateCode))
+    except (ValueError, TypeError):
+        return render_template('500.html'), 500
+
+
+@main.route("/listings/<string:city>/<string:stateCode>")
+def listingsPage(city, stateCode=None):
     """Display listings by location to user."""
     try:
         # Retrieve listings from Hoya database
         listings = list(db.listings.find())
-        if request.method == 'POST':
-            city = request.form.get("city")
-            stateCode = request.form.get("stateCode")
 
-            # initialize listings list
-            # find our listings from our database based on the city we get
-            # from the search form
-            # add to query to filter: {"address": {"city": city}}
-            print(f"Listings after appending db query: {listings}")
+        # initialize listings list
+        # find our listings from our database based on the city we get
+        # from the search form
+        # add to query to filter: {"address": {"city": city}}
+        print(f"Listings after appending db query: {listings}")
 
-            # Retrieve listings from external (realtor) API
-            url = os.getenv("API_URL")
+        # Retrieve listings from external (realtor) API
+        url = os.getenv("API_URL")
 
-            querystring = {
-                "city": city,
-                "limit": "10",
-                "offset": "0",
-                "state_code": stateCode,
-                "sort": "relevance",
+        querystring = {
+            "city": city,
+            "limit": "20",
+            "offset": "0",
+            "state_code": stateCode,
+            "sort": "relevance",
+        }
+
+        headers = {
+            "x-rapidapi-key": os.getenv("API_KEY"),
+            "x-rapidapi-host": os.getenv("API_HOST"),
+        }
+        response = requests.request(
+            "GET", url, headers=headers, params=querystring
+        ).json()
+
+        # For each listing in response["properties"] (excluding metadata)
+        # append to our listings list
+        # given that our API returns inconsistent data, handle cases where keys
+        # don't exist
+
+        for prop in response["properties"]:
+            sqFootage = None
+            if prop.get("lot_size", None) is None:
+                sqFootage = prop.get("building_size", {}).get(
+                    "size", random.randint(900, 3400)
+                )
+            if prop.get("building_size", None) is None:
+                sqFootage = prop.get("lot_size", {}).get(
+                    "size", random.randint(900, 3400)
+                )
+
+            listing = {
+                "_id": prop.get("property_id", ObjectId()),
+                "numBedrooms": prop.get("beds", random.randint(1, 5)),
+                "numBathrooms": prop.get("baths", random.randint(1, 5)),
+                "sqFootage": sqFootage,
+                "address": {
+                    # TODO: instead of None, pass in city, state from req.form
+                    "city": prop.get("address", {}).get("city", None),
+                    "state": prop.get("address", {}).get("state", None),
+                    "zip": prop.get("address", {}).get("postal_code", None),
+                },
             }
-
-            headers = {
-                "x-rapidapi-key": os.getenv("API_KEY"),
-                "x-rapidapi-host": os.getenv("API_HOST"),
-            }
-            response = requests.request(
-                "GET", url, headers=headers, params=querystring
-            ).json()
-
-            # For each listing in response["properties"] (excluding metadata)
-            # append to our listings list
-            # given that our API returns inconsistent data, handle cases where keys
-            # don't exist
-
-            for prop in response["properties"]:
-                sqFootage = None
-                if prop.get("lot_size", None) is None:
-                    sqFootage = prop.get("building_size", {}).get(
-                        "size", random.randint(900, 3400)
-                    )
-                if prop.get("building_size", None) is None:
-                    sqFootage = prop.get("lot_size", {}).get(
-                        "size", random.randint(900, 3400)
-                    )
-
-                listing = {
-                    "_id": prop.get("property_id", ObjectId()),
-                    "numBedrooms": prop.get("beds", random.randint(1, 5)),
-                    "numBathrooms": prop.get("baths", random.randint(1, 5)),
-                    "sqFootage": sqFootage,
-                    "address": {
-                        # TODO: instead of None, pass in city, state from req.form
-                        "city": prop.get("address", {}).get("city", None),
-                        "state": prop.get("address", {}).get("state", None),
-                        "zip": prop.get("address", {}).get("postal_code", None),
-                    },
-                }
-                listings.append(listing)
-                return render_template('listings.html', listings=listings)
-        return render_template("listings.html", listings=listings)
+            listings.append(listing)
+        return render_template('listings.html', listings=listings)
     except (KeyError, ValueError):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
