@@ -7,13 +7,7 @@ from bson.objectid import ObjectId
 import requests
 import os
 
-# from bson.objectid import ObjectId
 
-# This is weird flask syntax that intializes our blueprint
-# You'll notice our routes below look like:
-# main.route('/') instead of what you're used to (app.route('/'))
-# We're basically just sectioning off related routes from our app,
-# which will help us preserve readability and maintainability as we scale.
 main = Blueprint("main", __name__)
 
 
@@ -47,12 +41,14 @@ def listingsPage():
         # Retrieve listings from external (realtor) API
         url = os.getenv("API_URL")
 
+        stateCode = request.form.get('')
+        city = request.form.get('')
         # TODO: make city dynamic based on "search form"
         querystring = {
-            "city": "New York City",
+            "city": city,
             "limit": "50",
             "offset": "0",
-            "state_code": "NY",
+            "state_code": stateCode,
             "sort": "relevance"
         }
 
@@ -73,21 +69,21 @@ def listingsPage():
                 sqFootage = prop.get("lot_size", {}).get("size", None)
 
             listing = {
-                "_id": prop["property_id"] or None,
-                "numBedrooms": prop["beds"] or None,
-                "numBathrooms": prop["baths"] or None,
+                "_id": prop.get("property_id", None),
+                "numBedrooms": prop.get("beds", None),
+                # "numBathrooms": prop.get("baths", None),
                 "sqFootage": sqFootage,
                 "address": {
-                    "city": prop["address"]["city"] or None,
-                    "state": prop["address"]["state"] or None,
-                    "zip": prop["address"]["postal_code"] or None
+                    "city": prop.get("address", {}).get("city", None),
+                    "state": prop.get("address", {}).get("state", None),
+                    "zip": prop.get("address", {}).get("postal_code", None)
                 }
             }
             listings.append(listing)
         # TODO: come up with stock "house" icon for FE to show with each listing
         # TODO: pass relevent listing data to FE
         # TODO: check with FE what listings template is called
-        return render_template("index.html", listings=listings)
+        return render_template("listings.html", listings=listings)
     except(KeyError):
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
@@ -188,3 +184,4 @@ def deleteListing(id):
     except(ValueError):
         # Return custom 500 error page, set status code to 500
         return render_template("500.html"), 500
+ 
