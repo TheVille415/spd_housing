@@ -1,25 +1,25 @@
-.HoyaJumbo {
+/* .HoyaJumbo {
     height: 60vh;
     width: 100%;
     background-color: rgb(213, 242, 215);
     padding: 5%;
-}
+} */
 
-.hoya-jumbo {
+/* .hoya-jumbo {
     width: 50%;
     min-width: 400px;
     background-color: white;
     border-radius: 25px;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     overflow: auto;
-}
+} */
 
 .HoyaContent {
-    height: 220vh;
+    height:auto;
     width: 100%;
     background-color: rgb(214, 220, 212);
     padding: 5%;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 .listings {
@@ -95,4 +95,73 @@ hr {
 .card-container {
     display: grid;
     grid-template-columns: auto auto;
+}
+
+.top-search{
+    width:100vw;
+    height: 100vh;
+    background-color: rgb(93, 194, 72);
+
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    padding:30%
+    
+}
+
+.search-container * {
+        display: inline;
+}
+.or{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-right: 0;
+    font-size:35px;
+    font-weight: 700;
+}
+.search-bar[type=text] {
+    padding-left: 16px;
+    font-size:30px;
+    border: none;
+    margin-top: 0;
+    margin-right: 0;
+    border-radius: 40px;
+    width:25vw;
+    height:7vh;
+    min-width: 100px;
+    min-height: 40px;
+    margin-left: 20px;
+    margin-right:20px;
+}
+
+.search-button {
+    margin-left: 20px;
+    margin-right:20px;
+    margin-top: 0;
+    margin-right: 0;
+    background: rgb(18, 106, 0);
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    width:7vh;
+    height:7vh;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+  
+.top-search .search-container .search-bar:hover {
+    background: rgb(242, 255, 239);
+}
+  
+.top-search .search-container .search-button:hover {
+    background: rgb(46, 136, 21);
 }

@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: #263F36;
+    background-color: white;
     margin: 0%;
     padding: 0%;
     overflow-y: hidden;
@@ -636,3 +636,5 @@ footer {
 .footer-link-container a:hover {
     color: rgb(135, 211, 229);
 }
+
+
