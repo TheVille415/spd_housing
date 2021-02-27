@@ -6,7 +6,7 @@ import tensorflow as tf
 def ValuePredictor(to_predict):
     """Return first index of result once loading model."""
     model = keras.models.load_model(
-        "/Users/sidneyarcidiacono/Projects/spd_housing/my_model"
+        "my_model"
     )
     # keras .predict() methods expect batch of inputs, so let's provide an axis
     # to avoid errors
