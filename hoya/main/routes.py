@@ -36,73 +36,66 @@ def listingsPage():
     """Display listings by location to user."""
     try:
         # Retrieve listings from Hoya database
-        # TODO: query listings by city based on "search form"
-        # (access w request.form.get())
-        # TODO: expect from front-end: "city" and "stateCode"
-        # Put in place of "city" and "state_code" in querystring
-        # currently initializing to none so I don't get errors
-        city = None
-        stateCode = None
-
-        # initialize listings list
-        # find our listings from our database based on the city we get
-        # from the search form
-        # add to query to filter: {"address": {"city": city}}
         listings = list(db.listings.find())
-        print(f"Listings after appending db query: {listings}")
+        if request.method == 'POST':
+            city = request.form.get("city")
+            stateCode = request.form.get("stateCode")
 
-        # Retrieve listings from external (realtor) API
-        url = os.getenv("API_URL")
+            # initialize listings list
+            # find our listings from our database based on the city we get
+            # from the search form
+            # add to query to filter: {"address": {"city": city}}
+            print(f"Listings after appending db query: {listings}")
 
-        querystring = {
-            "city": "New York City",
-            "limit": "10",
-            "offset": "0",
-            "state_code": "NY",
-            "sort": "relevance",
-        }
+            # Retrieve listings from external (realtor) API
+            url = os.getenv("API_URL")
 
-        headers = {
-            "x-rapidapi-key": os.getenv("API_KEY"),
-            "x-rapidapi-host": os.getenv("API_HOST"),
-        }
-        response = requests.request(
-            "GET", url, headers=headers, params=querystring
-        ).json()
-
-        # For each listing in response["properties"] (excluding metadata)
-        # append to our listings list
-        # given that our API returns inconsistent data, handle cases where keys
-        # don't exist
-
-        for prop in response["properties"]:
-            sqFootage = None
-            if prop.get("lot_size", None) is None:
-                sqFootage = prop.get("building_size", {}).get(
-                    "size", random.randint(900, 3400)
-                )
-            if prop.get("building_size", None) is None:
-                sqFootage = prop.get("lot_size", {}).get(
-                    "size", random.randint(900, 3400)
-                )
-
-            listing = {
-                "_id": prop.get("property_id", ObjectId()),
-                "numBedrooms": prop.get("beds", random.randint(1, 5)),
-                "numBathrooms": prop.get("baths", random.randint(1, 5)),
-                "sqFootage": sqFootage,
-                "address": {
-                    # TODO: instead of None, pass in city, state from req.form
-                    "city": prop.get("address", {}).get("city", None),
-                    "state": prop.get("address", {}).get("state", None),
-                    "zip": prop.get("address", {}).get("postal_code", None),
-                },
+            querystring = {
+                "city": city,
+                "limit": "10",
+                "offset": "0",
+                "state_code": stateCode,
+                "sort": "relevance",
             }
-            listings.append(listing)
-        # TODO: come up with stock "house" icon for FE to show with
-        # each listing
-        # TODO: pass relevent listing data to FE
-        # TODO: check with FE what listings template is called
+
+            headers = {
+                "x-rapidapi-key": os.getenv("API_KEY"),
+                "x-rapidapi-host": os.getenv("API_HOST"),
+            }
+            response = requests.request(
+                "GET", url, headers=headers, params=querystring
+            ).json()
+
+            # For each listing in response["properties"] (excluding metadata)
+            # append to our listings list
+            # given that our API returns inconsistent data, handle cases where keys
+            # don't exist
+
+            for prop in response["properties"]:
+                sqFootage = None
+                if prop.get("lot_size", None) is None:
+                    sqFootage = prop.get("building_size", {}).get(
+                        "size", random.randint(900, 3400)
+                    )
+                if prop.get("building_size", None) is None:
+                    sqFootage = prop.get("lot_size", {}).get(
+                        "size", random.randint(900, 3400)
+                    )
+
+                listing = {
+                    "_id": prop.get("property_id", ObjectId()),
+                    "numBedrooms": prop.get("beds", random.randint(1, 5)),
+                    "numBathrooms": prop.get("baths", random.randint(1, 5)),
+                    "sqFootage": sqFootage,
+                    "address": {
+                        # TODO: instead of None, pass in city, state from req.form
+                        "city": prop.get("address", {}).get("city", None),
+                        "state": prop.get("address", {}).get("state", None),
+                        "zip": prop.get("address", {}).get("postal_code", None),
+                    },
+                }
+                listings.append(listing)
+                return render_template('listings.html', listings=listings)
         return render_template("listings.html", listings=listings)
     except (KeyError, ValueError):
         # Return custom 404 error page, set status code to 404

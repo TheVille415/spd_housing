@@ -1,9 +1,21 @@
 {% extends 'base.html' %} {% block content %} {% include 'modal.html' %}
 <div>
     {% include 'navbar.html' %}
-    <div>
-        <!-- this is for the search Jose free to do whatever :) -->
+
+
+    <div class=" top-search container-fluid g-0">
+        <div class="search-container">
+            <form action="{{ url_for('main.listingsPage') }}" method="POST">
+                <input class=" search-bar" type="text" name="city" placeholder="City" name="search">
+            </form>
+            <p class="or"> OR </p>
+            <form action="{{ url_for('main.listingsPage') }}" method="POST">
+                <input class="search-bar" type="text" name="stateCode" placeholder="State" name="search">
+                <button class="search-button" type="submit">Go!</button>
+            </form>
+        </div>
     </div>
+
     <div class="container-fluid HoyaContent ">
 
         <div class="card-container">
