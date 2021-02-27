@@ -2,20 +2,6 @@
 <div>
     {% include 'navbar.html' %}
 
-
-    <div class=" top-search container-fluid g-0">
-            <div class="search-container">
-                    <form action="{{ url_for('main.listingsPage') }}" method="POST">
-                        <input class=" search-bar" type="text" name="city" placeholder="City" name="search">
-                    </form>
-                    <p class="or"> OR </p>
-                    <form action="{{ url_for('main.listingsPage') }}" method="POST">
-                        <input class="search-bar" type="text" name="stateCode" placeholder="State" name="search">
-                        <button class="search-button" type="submit">Go!</button>
-                    </form>
-            </div>
-    </div>
-
     <div class="container-fluid HoyaContent ">
         <div class="container  mr-auto ml-auto">
             <h1 class="listings">
@@ -43,47 +29,6 @@
                 </div>
             </div>
             {% endfor %}
-            <!-- <div class="container listing-con mr-auto ml-auto mt-4 ">
-                <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="../static/6.jpg">
-                    </div>
-                    <div class="col-md-6 col-sm-12 card-content">
-                        <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>Bed:</h5>
-                        <hr>
-                        <h5>Bath:</h5>
-                        <hr>
-                        <h5>Sq Ft:</h5>
-                        <hr>
-                        <h5>Address:</h5>
-                        <hr>
-                        <div class="list-button"> List this house!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container listing-con mr-auto ml-auto mt-4 ">
-                <div class="row listing-card d-flex justify-content-center g-0 ">
-                    <div class="col-md-6 col-sm-12 image-card">
-                        <img style="height: 100%; width: 100%;" src="../static/4.jpg">
-                    </div>
-                    <div class="col-md-6 col-sm-12 card-content">
-                        <h4 class="card-header p-3 mb-3">Hoya Price</h4>
-                        <h5>Bed:</h5>
-                        <hr>
-                        <h5>Bath:</h5>
-                        <hr>
-                        <h5>Sq Ft:</h5>
-                        <hr>
-                        <h5>Address:</h5>
-                        <hr>
-                        <div class="list-button"> List this house!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
         </div>
         {% include 'footer.html' %}

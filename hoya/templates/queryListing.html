@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/listings.css')}}">
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class=" top-search container-fluid g-0">
+  <div class="search-container">
+    <form action="{{ url_for('main.listingsQuery') }}" method="POST">
+      <input class=" search-bar" type="text" name="city" placeholder="City" name="search">
+      <input class="search-bar" type="text" name="stateCode" placeholder="State" name="search">
+      <button class="search-button" type="submit">Go!</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
