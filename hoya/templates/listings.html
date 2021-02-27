@@ -1,15 +1,13 @@
-{% extends 'base.html' %} {% block content %} {% include 'modal.html' %}
+{% extends 'base.html' %}{% block head %}
+<link href="{{ url_for('static', filename='styles/listings.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %}
 <div>
     {% include 'navbar.html' %}
 
     <div class="container-fluid HoyaContent ">
-        <div class="container  mr-auto ml-auto">
-            <h1 class="listings">
-                Hoya Houses
-            </h1>
-        </div>
+
         <div class="card-container">
             {% for listing in listings %}
+
             <div class="container listing-con mr-auto ml-auto mt-4 ">
                 <div class="row listing-card d-flex justify-content-center g-0 ">
                     <div class="col-md-6 col-sm-12 image-card">
@@ -25,14 +23,12 @@
                         <hr>
                         <h6>{{ listing.address.city }}, {{ listing.address.state }} {{ listing.address.zip }}</h6>
                         <hr>
+
                     </div>
                 </div>
             </div>
             {% endfor %}
-
         </div>
         {% include 'footer.html' %}
 
-</div>
-</div>
-{% endblock %}
+    </div> {% endblock %}
