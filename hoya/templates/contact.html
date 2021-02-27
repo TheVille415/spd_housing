@@ -3,25 +3,25 @@
     {% include 'navbar.html' %}
     <div class="contactContainer">
         <div class="contactInfoHeader">
-            <div class="straightned-form">
+            <div class="straightened-form">
                 <div class='row '>
-                    <h1>Any Budding Questions?</h1>
+                    <h1>Budding Questions?</h1>
                 </div>
-                <form id="my-form-id" method="post" action="https://api.formcake.com/api/form/12c4ae45-a0b6-4391-b53a-8fc7332e6224/submission">
+                <form id="contact-us" method="post" action="https://api.formcake.com/api/form/12c4ae45-a0b6-4391-b53a-8fc7332e6224/submission">
 
                     <div class="row form">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" required autocomplete="off" />
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" required autocomplete="off" />
 
-                        <label for="numBedrooms">Email</label>
-                        <input type="email" name="name" id="numBedrooms" required autocomplete="off" />
+                        <label for="email">Email:</label>
+                        <input type="email" name="name" id="email" placeholder="John_Doe@gmail.com" required autocomplete="off" />
 
-                        <label for="subject">Subject</label>
-                        <input type="text" name="name" id="subject" required autocomplete="off" />
+                        <label for="subject">Subject:</label>
+                        <input type="text" name="name" id="subject" placeholder="What is this about?" required autocomplete="off" />
 
-                        <label for="message">Message</label>
-                        <input type="text" name="name" id="message" required autocomplete="off" />
-                        <button class="submit-button-form-contact" type="submit" value="Submit">Submit</button>
+                        <label for="message">Message:</label>
+                        <input type="text" name="name" id="message" placeholder="What do you want to say?" required autocomplete="off" />
+                        <button class="submit-button-form-contact" type="submit" value="Submit">Send!</button>
                     </div>
                 </form>
 

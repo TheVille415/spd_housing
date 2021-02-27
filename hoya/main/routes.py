@@ -86,6 +86,7 @@ def listingsPage():
                 )
 
             listing = {
+
                 "_id": prop.get("property_id", ObjectId()),
                 "numBedrooms": prop.get("beds", random.randint(1, 5)),
                 "numBathrooms": prop.get("baths", random.randint(1, 5)),
@@ -98,9 +99,12 @@ def listingsPage():
                 },
             }
             listings.append(listing)
-        # Pass listings to FE as a list
+        # TODO: come up with stock "house" icon for FE to show with each listing
+        # TODO: pass relevent listing data to FE
+        # TODO: check with FE what listings template is called
         return render_template("listings.html", listings=listings)
     except (KeyError, ValueError):
+
         # Return custom 404 error page, set status code to 404
         # We use 404 here (rather than 500) because 404 means
         # "resource not found"
