@@ -4,8 +4,30 @@
     {% include 'navbar.html' %}
     <div class="predict-container">
         <!-- card list data, and show prediction -->
+        <div class="predict-card-container">
+            <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+            <h3>Hoya Price Tool</h3>
+            <h4>Your Estimate: </h4>
+            <div class="house-detail">
+                <h6>Your House Details</h6>
+                <ul>
+                    <li>Bedrooms: </li>
+                    <li>Bathrooms: </li>
+                    <li>Sq Ft: </li>
+                    <li>City: </li>
+                    <li>State: </li>
+                    <li>Zip: </li>
+                </ul>
+            </div>
+            <div class="buttons-card">
+                <button class="primary">
+                    List It!
+                </button>
+                <button class="primary ghost">
+                    New House
+                </button>
+            </div>
+        </div>
     </div>
-    {% include 'footer.html' %}
-
-    {% endblock %}
+    {% include 'footer.html' %} {% endblock %}
 </div>

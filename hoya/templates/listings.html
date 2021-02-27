@@ -6,7 +6,7 @@
 
         <div class="card-container">
             {% for listing in listings %}
-            <div class="container listing-con mr-auto ml-auto mt-4 ">
+            <!-- <div class="container listing-con mr-auto ml-auto mt-4 ">
                 <div class="row listing-card d-flex justify-content-center g-0 ">
                     <div class="col-md-6 col-sm-12 image-card">
                         <img style="height: 100%; width: 100%;" src="{{ url_for('static', filename='4.jpg') }}">
@@ -23,9 +23,29 @@
                         <hr>
                     </div>
                 </div>
+            </div> -->
+
+            <div class="container listing-con mr-auto ml-auto mt-4 ">
+                <div class="row listing-card d-flex justify-content-center g-0 ">
+                    <div class="predict-card-container">
+                        <img class="round" src="" alt="Hoya logo" />
+                        <!-- <h3>Hoya Price Tool</h3> -->
+                        <h4>Hoya Estimate: </h4>
+                        <div class="house-detail">
+                            <h6>Your House Details</h6>
+                            <ul>
+                                <li>Bedrooms: {{ listing.numBedrooms }}</li>
+                                <li>Bathrooms: {{ listing.numBathrooms }}</li>
+                                <li>Sq Ft: {{ listing.sqFootage }}</li>
+                                <li>City: {{ listing.address.city }}</li>
+                                <li>State: {{ listing.address.state }}</li>
+                                <li>Zip: {{ listing.address.zip }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             {% endfor %}
-
         </div>
         {% include 'footer.html' %}
 
