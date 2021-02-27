@@ -1,7 +1,12 @@
 .top-search {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(93, 194, 72);
+    background-image: url("../ross-joyner-TX6dBiMwBV0-unsplash.jpg");
+    background-position: center;
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
 .search-container {
