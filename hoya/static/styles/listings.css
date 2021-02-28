@@ -163,3 +163,86 @@ hr {
     display: grid;
     grid-template-columns: auto auto;
 }
+
+h3 {
+    margin: 10px 0;
+}
+
+h6 {
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.predict-card-container {
+    background-color: #3D727C;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    color: #B3B8CD;
+    padding-top: 30px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding-bottom: 2.5%;
+}
+
+.predict-card-container .pro {
+    color: #3D727C;
+    background-color: #FEBB0B;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.predict-card-container .round {
+    border: 1px solid #03BFCB;
+    border-radius: 50%;
+    padding: 7px;
+}
+
+.buttons-card .primary {
+    background-color: #03BFCB;
+    border: 1px solid #03BFCB;
+    border-radius: 3px;
+    color: #3D727C;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    padding: 10px 25px;
+}
+
+.buttons-card .primary.ghost {
+    background-color: transparent;
+    color: #02899C;
+}
+
+.house-detail {
+    background-color: #2F5857;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.house-detail ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.house-detail ul li {
+    border: 1px solid #2D2747;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 7px 7px 0;
+    padding: 7px;
+}
