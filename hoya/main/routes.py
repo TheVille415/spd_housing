@@ -39,9 +39,7 @@ def listingsQuery():
             return render_template('queryListing.html')
         if request.method == 'POST':
             city = request.form.get('city')
-            print(f"City: {city}")
             stateCode = request.form.get('stateCode')
-            print(f"State: {stateCode}")
             return redirect(url_for('main.listingsPage', city=city, stateCode=stateCode))
     except (ValueError, TypeError):
         return render_template('500.html'), 500
@@ -116,13 +114,13 @@ def listingsPage(city, stateCode=None):
         return render_template("404.html"), 404
 
 
-@main.route("/predict/<ObjectId:listingId>", methods=["GET"])
-def result(listingId):
+@main.route("/predict/<listingId>", methods=["GET"])
+def predict(listingId):
     """Call ValuePredictor from utils to predict housing price."""
     try:
         # find our listing by the listingId passed through the params
         # parse to dict so that Python can work with it
-        listing = dict(db.listings.find_one_or_404({"_id": listingId}))
+        listing = dict(db.listings.find_one_or_404({"_id": ObjectId(listingId)}))
         # Access just the square footage value for our prediction model
         sqFootage = listing["sqFootage"]
         # Call ValuePredictor from utils to return our prediction
@@ -140,9 +138,6 @@ def result(listingId):
         return render_template("500.html"), 500
 
 
-# TODO: move listing routes to their own blueprint
-
-
 @main.route("/newListing", methods=["POST"])
 def newListing():
     """Add new listing resource to database."""
@@ -154,20 +149,20 @@ def newListing():
             "numBathrooms": request.form.get("numBathrooms"),
             "price": None,
             "address": {
-                "street": request.form.get("address").split(",")[0],
-                "city": request.form.get("address").split(",")[1],
-                "zip": request.form.get("address").split(",")[2],
+                "street": request.form.get("address").split(" ")[0],
+                "city": request.form.get("address").split(" ")[1],
+                "zip": request.form.get("address").split(" ")[2],
             },
         }
         # Call insert_one on listings collection
         # insert newListing
-        db.listings.insert_one(newListing)
+        insertedListing = db.listings.insert_one(newListing)
         # Remove print statements after testing
         print(f"Inserted successfully! {newListing}")
         # Redirect back to landing page
         # TODO: redirect to listings page
         return redirect(
-            url_for("main.predict", listingId=newListing.inserted_id)
+            url_for("main.predict", listingId=insertedListing.inserted_id)
         )
     except (ValueError, TypeError):
         # Return custom 500 error page, set status code to 500
