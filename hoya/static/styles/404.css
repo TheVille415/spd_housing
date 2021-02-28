@@ -20,8 +20,8 @@ body {
     height: 50%;
     margin: 5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    /* align-items: center; */
 }
 
 .error-heading {

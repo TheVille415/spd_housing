@@ -72,8 +72,6 @@
 }
 
 .HoyaContent {
-    /* height: 220vh; */
-    /* width: 100vw; */
     height: auto;
     width: 100%;
     background-color: rgb(214, 220, 212);
@@ -89,11 +87,6 @@
     font-size: 40px;
 }
 
-h5 {
-    margin: none;
-    padding: none;
-}
-
 .card-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -106,35 +99,7 @@ h5 {
 }
 
 .listing-card {
-    background-color: white;
-}
-
-.card-content {
-    margin: none;
-    padding: 20px;
-    max-height: 50vh;
-    min-height: 45vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-header {
-    background-color: #005340;
-    color: #63A58D;
-    border-radius: 25px;
-    justify-content: center;
-}
-
-.fa .fa-leaf {
-    height: 20px;
-    width: 20px;
-}
-
-hr {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background-color: transparent;
 }
 
 .list-button {

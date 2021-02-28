@@ -20,7 +20,7 @@ body {
     height: 50%;
     margin: 5%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
@@ -32,11 +32,11 @@ body {
 .error-button {
     width: 50%;
     border: none;
-    height: 6vh;
+    height: 7vh;
     padding: 2.5%;
     border-radius: 20px;
-    color: red;
-    font-weight: 400;
-    background-color: #95CDEE;
+    color: rgb(95, 3, 3);
+    font-weight: 300;
+    font-size: 24px;
     outline: none;
 }
