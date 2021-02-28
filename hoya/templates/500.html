@@ -1,15 +1,12 @@
-<!-- Extends base.html and shows "500, that's a server error. Something went wrong" -->
-<!-- Include button to get back to homepage -->
 {% extends 'base.html' %}{% block head %}
 <link href="{{ url_for('static', filename='styles/500.css') }}" rel="stylesheet">{% endblock %} {% block content %}
-
 
 <body>
     <div class="error-message-container">
         <div class="row error-message">
             <h2 class="error-heading ">505! Oops! Server Error</h2>
             <h3 class="error-heading ">Let’s take you home!</h3>
-            <button class="error-button ">back to homepage</button>
+            <button class="error-button " href="{{ url_for('main.landingPage') }}">back to homepage</button>
         </div>
     </div>
 </body>
