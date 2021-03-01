@@ -98,6 +98,7 @@ def listingsPage(city, stateCode=None):
                 "numBedrooms": prop.get("beds", random.randint(1, 5)),
                 "numBathrooms": prop.get("baths", random.randint(1, 5)),
                 "sqFootage": sqFootage,
+                "price": prop.get("price", random.randint(230000, 800000)),
                 "address": {
                     # TODO: instead of None, pass in city, state from req.form
                     "city": prop.get("address", {}).get("city", None),
@@ -126,7 +127,7 @@ def predict(listingId):
         # Call ValuePredictor from utils to return our prediction
         result = ValuePredictor(sqFootage)  # sq foot here
         # Parse to a string for display.
-        prediction = str(result)
+        prediction = str(result[0][0])
 
         # Add price to our database documents
         listing["price"] = prediction

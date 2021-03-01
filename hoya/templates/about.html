@@ -1,179 +1,182 @@
 {% extends 'base.html' %}{% block head %}
 <link href="{{ url_for('static', filename='styles/about.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %} {% include 'navbar.html' %}
 <div class="aboutHoyaContainer">
-    <div class="parallax">
-        <div class="missionStatement">
-            <div class="missionStatementContainer">
-                <div class="container-fluid HoyaJumbo">
-                    <div class="jumbotron p-3 hoya-jumbo">
-                        <h6 class="lead"> Hoya is made for House buyers, sellers and the occasional window shopper. Our price prediction A.I will give you the best deal, rest assured. Try the<a data-toggle="modal" data-target="#addHouse" role="button">  Hoya Price Tool today!</a>
-                        </h6>
-                    </div>
-                </div>
-            </div>
+  <div class="parallax">
+    <div class="missionStatement">
+      <div class="missionStatementContainer">
+        <div class="container-fluid HoyaJumbo">
+          <div class="jumbotron p-3 hoya-jumbo">
+            <h6 class="lead"> Hoya is made for House buyers, sellers and the occasional window shopper. Our price prediction A.I will give you the best deal, rest assured. Try the<a data-toggle="modal" data-target="#addHouse" role="button"> Hoya
+                Price Tool today!</a>
+            </h6>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <section id="team" class="pb-5">
-    <div class="container">
-        <h5 class="section-title h1">Hoya Leaflets!</h5>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='sam.jpg') }}" alt="Samuel Madrigal, developer"></p>
-                                    <h4 class="card-title">Samuel Madrigal</h4>
-                                    <p class="card-text">Back End Lead</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">When you add a house to our available listings, he make sure that all of the information is correct before passing it off to our Hoya Price Tool.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <h5 class="section-title h1">Hoya Leaflets!</h5>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="{{ url_for('static', filename='sam.jpg') }}" alt="Samuel Madrigal, developer"></p>
+                  <h4 class="card-title">Samuel Madrigal</h4>
+                  <p class="card-text">Back End Lead</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                 </div>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='Jordant.jpg') }}" alt="Jordan Torres, developer"></p>
-                                    <h4 class="card-title">Jordan Torres</h4>
-                                    <p class="card-text">Git Master</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">Jordan tirelessly makes sure that any changes or features we add to Hoya rollout smoothly for our Hoya family.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">When you add a house to our available listings, he make sure that all of the information is correct before passing it off to our Hoya Price Tool.</p>
                 </div>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='Jose.jpg') }}" alt="Jose Salazar, developer"></p>
-                                    <h4 class="card-title">Jose Salazar</h4>
-                                    <p class="card-text">Design Lead</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">Hello, I'm just someone who loves code</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='Josh.jpg') }}" alt="Joshua Riley, developer"></p>
-                                    <h4 class="card-title">Joshua Riley</h4>
-                                    <p class="card-text">Front End Lead</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">Joshua is a front end developer, dedicated to creating clean design and changing the way you feel when you use web applications.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="{{ url_for('static', filename='Sid.jpg') }}" alt="Sid Arcidiacono, developer"></p>
-                                    <h4 class="card-title">Sid Arcidiacono</h4>
-                                    <p class="card-text">Scrum Master</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">Sid is a back end developer and machine learning engineer, dedicated to developing innovative solutions to complex problems.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip">
-                    <div class="mainflip flip-0">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQCTLHLWmBrobpFTsbP5Dwmc_P0hpTTmyXSKKHzUe1jGp84qwgh-XcqRySA&usqp=CAc" alt="card image"></p>
-                                    <h4 class="card-title">Daniel</h4>
-                                    <p class="card-text">Customer Care</p>
-                                    <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="backside">
-                            <div class="card">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Hoya!</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="{{ url_for('static', filename='Jordant.jpg') }}" alt="Jordan Torres, developer"></p>
+                  <h4 class="card-title">Jordan Torres</h4>
+                  <p class="card-text">Git Master</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">Jordan tirelessly makes sure that any changes or features we add to Hoya rollout smoothly for our Hoya family.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="{{ url_for('static', filename='Jose.jpg') }}" alt="Jose Salazar, developer"></p>
+                  <h4 class="card-title">Jose Salazar</h4>
+                  <p class="card-text">Design Lead</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">Hello, I'm just someone who loves code</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="{{ url_for('static', filename='Josh.jpg') }}" alt="Joshua Riley, developer"></p>
+                  <h4 class="card-title">Joshua Riley</h4>
+                  <p class="card-text">Front End Lead</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">Joshua is a front end developer, dedicated to creating clean design and changing the way you feel when you use web applications.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="{{ url_for('static', filename='Sid.jpg') }}" alt="Sid Arcidiacono, developer"></p>
+                  <h4 class="card-title">Sid Arcidiacono</h4>
+                  <p class="card-text">Scrum Master</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">Sid is a back end developer and machine learning engineer, dedicated to developing innovative solutions to complex problems.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-flip">
+          <div class="mainflip flip-0">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQCTLHLWmBrobpFTsbP5Dwmc_P0hpTTmyXSKKHzUe1jGp84qwgh-XcqRySA&usqp=CAc" alt="card image"></p>
+                  <h4 class="card-title">Daniel</h4>
+                  <p class="card-text">Customer Care</p>
+                  <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">Hoya!</h4>
+                  <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <div class="story-container row row-no-gutters">
-    <div class="story">
-        <h1>Our Story</h1>
-        <p>We considered what value we could bring to the world. We created something that would benefit people. Covid-19 presented a new way to look for a house to buy, sell, or browse. That is why we made Hoya.
-            <br> Hoya is an app for people made by people who are determined to give you the best market value with the help of our price prediction model.<br> Our talented team of developers at Hoya have made the home buying experience easier to navigate
-            with the goal of you finding a home. In a few clicks you may find out just how much that dust collecting studio is worth.<br> Not looking to sell? You can view listings of homes in your area, or anywhere around the globe.<br>Hoya has your
-            dream home!
-        </p>
-        <a class="story-button" href="{{ url_for('main.listingsQuery') }}">find it!</a>
-    </div>
+  <div class="story">
+    <h1>Our Story</h1>
+    <p>The world we live in today has presented us with new challenges, and new opportunities. The team at Hoya recognizes these opportunities, and we’re here to help you open the doors to your dreams, wherever they may be. </br>
+
+      Designed with you in mind, the Hoya team has revolutionized the home-finding experience, making it easier to navigate than ever before. With just a few clicks, we’ll tell you what your current house or apartment is worth, and give you access to
+      millions of dream homes around the globe. </br>
+
+      Try Hoya, we’ll get you home. </br>
+    </p>
+    <a class="story-button" href="{{ url_for('main.listingsQuery') }}">find it!</a>
+  </div>
 </div>
 {% include 'footer.html' %} {%endblock%}

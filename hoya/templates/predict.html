@@ -4,18 +4,18 @@
     {% include 'navbar.html' %}
     <div class="predict-container">
         <div class="predict-card-container">
-            <img class="round" src="{{ url_for('static', filename='Hoya-Square.png') }}" alt="user" />
+            <img class="round logo-icon" src="{{ url_for('static', filename='HoyaSquare.png') }}" alt="user" />
             <h3>Hoya Price Tool</h3>
-            <h4>Your Estimate: </h4>
+            <h4>Your Estimate: {{ listing.price }}</h4>
             <div class="house-detail">
                 <h6>Your House Details</h6>
                 <ul>
-                    <li>Bedrooms: </li>
-                    <li>Bathrooms: </li>
-                    <li>Sq Ft: </li>
-                    <li>City: </li>
-                    <li>State: </li>
-                    <li>Zip: </li>
+                    <li>Bedrooms: {{ listing.numBedrooms }}</li>
+                    <li>Bathrooms: {{ listing.numBathrooms }}</li>
+                    <li>Sq Ft:{{ listing.sqFootage }} </li>
+                    <li>City: {{ listing.address.city }}</li>
+                    <li>State:{{ listing.address.state }}</li>
+                    <li>Zip: {{ listing.address.zip }}</li>
                 </ul>
             </div>
             <div class="buttons-card">
