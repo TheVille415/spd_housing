@@ -290,7 +290,7 @@ textarea.question:invalid~input[type="submit"] {
     width: 100%;
 }
 
-footer {
+/* footer {
     background-color: #263F36;
     height: 8vh;
     width: 100%;
@@ -311,4 +311,4 @@ footer {
 
 .footer-link-container a:hover {
     color: rgb(135, 211, 229);
-}
+} */
