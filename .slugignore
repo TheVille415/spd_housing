@@ -4,3 +4,7 @@ README.md
 __pycache__
 .ipynb_checkpoints
 hoya/__pycache__
+Hoya-Large.png
+HoyaSquare.png
+.DS_Store
+hoya/.DS_Store
