@@ -1,4 +1,5 @@
-{% block Footer%} {% include 'modal.html' %}
+{% block Footer%}{% block head %}
+<link href="{{ url_for('static', filename='styles/footer.css') }}" rel="stylesheet">{% endblock %}  {% include 'modal.html' %}
 <div class="row fixed-bottom  footer-link-container">
     <footer>
         <a class="footer-link" href="{{ url_for('main.landingPage') }}">Home</a>
