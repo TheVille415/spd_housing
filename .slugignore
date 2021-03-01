@@ -1,2 +1,6 @@
 DNN_Regression_Hoya.ipynb
 kc_house_data.csv
+README.md
+__pycache__
+.ipynb_checkpoints
+hoya/__pycache__
