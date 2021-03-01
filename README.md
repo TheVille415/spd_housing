@@ -1,4 +1,4 @@
-# Hoya ![Hoya Logo](./hoya/static/HoyaSquare.jpg)
+# Hoya
 
 ## Real Estate By Developers, For Developers
 
@@ -12,3 +12,5 @@ Designed with you in mind, the Hoya team has revolutionized the home-finding exp
 millions of dream homes around the globe.
 
 **Try Hoya, we’ll get you home.**
+
+![Woman sitting on floor of new home, working.](./hoya/static/thought-catalog-Nv-vx3kUR2A-unsplash.jpg)
