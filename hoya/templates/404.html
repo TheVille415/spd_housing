@@ -1,21 +1,13 @@
 {% extends 'base.html' %}{% block head %}
 <link href="{{ url_for('static', filename='styles/404.css') }}" rel="stylesheet">{% endblock %} {% block content %}
-<!-- <h2 class="error-heading">404!?</h2>
-<h3 class="error-heading">Oh no! Looking for housing with no homes here!</h3>
-
-<form action="{{ url_for('main.landingPage') }}">
-    <input type="submit" value="Go to Homepage" />
-</form> -->
-
 <body>
     <div class="error-message-container">
         <div class="row error-message">
             <h2 class="error-heading ">404!!</h2>
             <h3 class="error-heading ">Oh no!
-                <br> Doesn 't look like there are any homes here!</h3>
+                <br> Doesn't look like there are any homes here!</h3>
             <a class="error-button" href="{{ url_for('main.landingPage ') }}">home</a>
         </div>
     </div>
 </body>
-
 {% endblock %}

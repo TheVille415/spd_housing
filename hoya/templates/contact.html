@@ -1,33 +1,24 @@
 {% extends 'base.html' %}{% block head %}
 <link href="{{ url_for('static', filename='styles/contact.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %}
-<div>
-    {% include 'navbar.html' %}
+<div>{% include 'navbar.html' %}
     <div class="contactContainer">
         <div class="contactInfoHeader">
             <div class="straightened-form">
-                <div class='row '>
-                    <h1>Budding Questions?</h1>
-                </div>
+                <div class='row'><h1>Budding Questions?</h1></div>
                 <form id="contact-us" method="POST" action="https://api.formcake.com/api/form/12c4ae45-a0b6-4391-b53a-8fc7332e6224/submission">
-
                     <div class="row form">
                         <label for="name">Name:</label>
                         <input type="text" name="name" id="name" placeholder="John Doe" required autocomplete="off" />
-
                         <label for="email">Email:</label>
                         <input type="email" name="name" id="email" placeholder="John_Doe@gmail.com" required autocomplete="off" />
-
                         <label for="subject">Subject:</label>
                         <input type="text" name="name" id="subject" placeholder="What is this about?" required autocomplete="off" />
-
                         <label for="message">Message:</label>
                         <input type="text" name="name" id="message" placeholder="What do you want to say?" required autocomplete="off" />
                         <button class="submit-button-form-contact" type="submit" value="Submit">Send!</button>
                     </div>
                 </form>
-
             </div>
-
         </div>
         {% include 'footer.html' %}
     </div> {% endblock %}
