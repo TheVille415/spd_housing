@@ -19,8 +19,8 @@
                 </ul>
             </div>
             <div class="buttons-card">
-                <button class="primary">List It!</button>
-                <button class="primary ghost">New House</button>
+                <a class="primary" href="{{ url_for('main.listingsQuery') }}">List It!</a>
+                <button class="primary ghost" data-toggle="modal" data-target="#addHouse" style="outline: none;">New House</button>
             </div>
         </div>
     </div>
