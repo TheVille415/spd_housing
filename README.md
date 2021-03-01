@@ -1,39 +1,14 @@
-# Hoya
+# Hoya ![Hoya Logo](./hoya/static/HoyaSquare.jpg)
 
-## Real Estate by Developers, for Developers
+## Real Estate By Developers, For Developers
 
 Built with Flask, Bootstrap & Tensorflow to bring you the best listing and home buying experience possible.
 
-*Coming live to you soon*
+**You can find Hoya [here](https://hoya-housing.herokuapp.com/)!**
 
-To run this app, set up your virtual environment:
+The world we live in today has presented us with new challenges, and new opportunities. The team at Hoya recognizes these opportunities, and we’re here to help you open the doors to your dreams, wherever they may be.
 
-```zsh
-python3 -m venv env
-```
+Designed with you in mind, the Hoya team has revolutionized the home-finding experience, making it easier to navigate than ever before. With just a few clicks, we’ll tell you what your current house or apartment is worth, and give you access to
+millions of dream homes around the globe.
 
-Install requirements:
-
-```zsh
-pip3 install -r requirements.txt
-```
-
-Activate your virtual environment:
-
-```zsh
-source env/bin/activate
-```
-
-You can run either:
-
-```zsh
-flask run
-```
-
-OR
-
-```zsh
-python3 app.py
-```
-
-To run the app. It'll be running at http://localhost:5000.
+**Try Hoya, we’ll get you home.**
