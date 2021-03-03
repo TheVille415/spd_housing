@@ -14,3 +14,7 @@ millions of dream homes around the globe.
 **Try Hoya, we’ll get you home.**
 
 ![Woman sitting on floor of new home, working.](./hoya/static/thought-catalog-Nv-vx3kUR2A-unsplash.jpg)
+
+### Meet the Hoya Team!
+
+![Image cards with the name and role of Hoya developers](./hoya/static/dev-team.png)
