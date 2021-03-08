@@ -6,7 +6,8 @@
     max-height: 100vh;
     width: 100%;
     position: relative;
-    
+    margin: 0;
+    padding: 0;
 }
 
 .HoyaIntro {
@@ -19,9 +20,8 @@
 }
 
 .hoya-landing-row {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    padding: 5%;
     background-color: rgba(0, 0, 0, 0.075);
 }
 
@@ -36,16 +36,17 @@
 
 
 .info_box {
-    width: 25vw;
+    width: 100vw;
     height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 10%;
 }
 
 .InfoHeader {
     width: 50%;
-    font-size: 2.5vw;
+    font-size: 5vh;
     text-align: left;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
@@ -58,7 +59,7 @@
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
 }
 
 .info-button {
@@ -67,8 +68,8 @@
     align-items: center;
     padding: 1.5%;
     border-style: none;
-    height: 50%;
-    width: 50%;
+    height: 5vh;
+    width: 7vw;
     font-size: 1.5vw;
     border-radius: 25px;
     transition-duration: 0.4s;
@@ -85,3 +86,20 @@
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media only screen and (max-width : 414px) {
+    .HoyaIntro {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+    .InfoHeader {
+        font-size: 3vh;
+    }
+    .info-button-row {
+        width: 50%;
+        
+    }
+    .info-button {
+        font-size: 2vh;
+    }
+}
