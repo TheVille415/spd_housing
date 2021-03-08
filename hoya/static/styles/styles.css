@@ -22,36 +22,6 @@ body {
     position: fixed;
 }
 
-.navbar-brand>a {
-    color: #2e4b40;
-    text-decoration: none;
-    transition-duration: 0.4s;
-    background-color: #4CAF50;
-    border-radius: 50%;
-    border-style: none;
-    height: 5em;
-    width: 5em;
-}
-
-a:hover {
-    color: #87d3e5;
-}
-
-.navbar-btn {
-    background-color: #4CAF50;
-    border-radius: 50%;
-    border-style: none;
-    height: 5em;
-    width: 5em;
-    margin: 1%;
-    transition-duration: 0.4s;
-}
-
-.navbar-btn:hover {
-    background-color: #87D3E5;
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-
 .HoyaIntro {
     height: 95vh;
     width: 100%;

@@ -1,18 +1,23 @@
-{% block content%}
+{% extends 'base.html' %}{% block head %}
+<link href="{{ url_for('static', filename='styles/navbar.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %}
 <div class="row">
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid nav-con">
             <h2 class="navbar-brand col">
-                <button class="navbar-btn">
-                        <a href="{{ url_for('main.landingPage') }}"><img src="https://img.icons8.com/ios-filled/50/000000/potted-plant.png" /></a>
-                </button>
-            </h2>
-            <button class="navbar-btn">
-                <a  href="{{ url_for('main.listingsQuery') }}">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/house-with-a-garden.png"/>
+                <a href="{{ url_for('main.landingPage') }}"> <button class="navbar-btn">
+                    <img src="https://img.icons8.com/ios-glyphs/32/000000/house-with-a-garden.png" />
+                    </button>
                 </a>
+            </h2>
+            <a  href="{{ url_for('main.listingsQuery') }}"> <button class="navbar-btn">
+                
+                <img src="https://img.icons8.com/android/32/000000/search.png"/>
+                </button>
+            </a>
+            <a  data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" ><button class="navbar-btn">
+                <img src="https://img.icons8.com/windows/32/000000/sell-property.png"/>
             </button>
-            <button class="navbar-btn" data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" href=""><img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png"/></button>
+            </a>
         </div>
     </nav>
 </div>
