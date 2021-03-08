@@ -1,5 +1,5 @@
 footer {
-    background-color: #263F36;
+    background-color: transparent;
     height: 8vh;
     width: 100%;
     display: flex;
@@ -7,6 +7,7 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.205);
 }
 
 .footer-link-container a {
@@ -14,9 +15,15 @@ footer {
     font-size: 2vh;
     text-decoration: none;
     background-color: transparent;
-    color: #6596a1;
+    color: #F4FCEF;
 }
 
 .footer-link-container a:hover {
     color: rgb(135, 211, 229);
+}
+
+@media only screen and (max-width : 320px) {
+    .footer-link-container {
+        background-color: #22351B;
+    }
 }
