@@ -1,27 +1,27 @@
 .parallax {
     background-image: url('https://images.pexels.com/photos/5749092/pexels-photo-5749092.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-    height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+    height: 100vh;
+
 }
 
 .missionStatement {
     height: 100%;
     width: 100%;
-    background-color: rgb(99, 165, 141, .18);
+    background-color: rgba(0, 0, 0, 0.075);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .missionStatementContainer {
-    height: 50%;
-    width: 55%;
-    background-color: rgb(99, 165, 141, .60);
-    border-radius: 20px;
+    height: auto;
+    width: auto;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,24 +34,34 @@
 }
 
 .HoyaJumbo h6 {
-    font-size: 1.5em;
-    text-align: left;
-    font-weight: 500;
+    font-size: 2.5vw;
+    text-align: center;
+    font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
-    overflow: hidden;
+    color: #F4FCEF;
+}
+
+.addHouseText {
+    color: #30CB00;
+    text-decoration: none;
+}
+
+.addHouseText:hover {
+    color: #3FEF0B;
+    text-decoration: underline;
 }
 
 .story-container {
     width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url('https://images.unsplash.com/photo-1503045666024-95470ad39b81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10%;
 }
 
@@ -66,7 +76,7 @@
 }
 
 .story {
-    padding: 2.5%;
+    padding: 5%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
     height: auto;
@@ -75,21 +85,22 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 5%;
     color: white;
-    background-color: rgba(29, 99, 117, 0.671);
+    border-radius: 25px;
+    background-color: rgba(29, 99, 117, 0.89);
 }
 
 .story h1 {
-    font-size: 3rem;
+    font-size: 2.5vw;
     font-weight: 500;
     margin-bottom: 2.5%;
 }
 
 .story p {
-    font-size: 2rem;
+    font-size: 1.5vw;
     font-weight: 300;
-    line-height: 70px;
+    text-align: center;
+    width: 65%;
 }
 
 .story br {
@@ -97,19 +108,22 @@
 }
 
 .story-button {
-    height: auto;
-    width: 10vw;
-    border-radius: 20px;
+    height: fit-content;
+    width: max-content;
+    border-radius: 25px;
     color: white;
-    font-size: 1.5em;
-    background-color: rgb(29, 99, 117);
+    font-size: 1.5vw;
+    background-color:#7D9870;
     border: none;
-    padding: 2.5%;
+    padding: 1%;
+
 }
 
 .story-button:hover {
-    background-color: rgb(51, 168, 197);
-    border: solid white;
+    background-color: #4E5F46;
+    color: white;
+    text-decoration: none;
+
 }
 
 @media only screen and (max-device-width: 1366px) {

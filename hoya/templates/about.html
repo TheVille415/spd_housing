@@ -1,12 +1,13 @@
 {% extends 'base.html' %}{% block head %}
-<link href="{{ url_for('static', filename='styles/about.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %} {% include 'navbar.html' %}
+<link href="{{ url_for('static', filename='styles/about.css') }}" rel="stylesheet">
+{% endblock %} {% block content %} {% include 'modal.html' %} {% include 'navbar.html' %}
 <div class="aboutHoyaContainer">
   <div class="parallax">
     <div class="missionStatement">
       <div class="missionStatementContainer">
         <div class="container-fluid HoyaJumbo">
           <div class="jumbotron p-3 hoya-jumbo">
-            <h6 class="lead"> Hoya is made for House buyers, sellers and the occasional window shopper. Our price prediction A.I will give you the best deal, rest assured. Try the<a data-toggle="modal" data-target="#addHouse" role="button"> Hoya
+            <h6 class="lead"> Hoya is made for House buyers, sellers and the occasional window shopper. Our price prediction A.I will give you the best deal, rest assured. Try the<a class="addHouseText" data-toggle="modal" data-target="#addHouse" role="button"> Hoya
                 Price Tool today!</a>
             </h6>
           </div>
@@ -169,14 +170,16 @@
 <div class="story-container row row-no-gutters">
   <div class="story">
     <h1>Our Story</h1>
-    <p>The world we live in today has presented us with new challenges, and new opportunities. The team at Hoya recognizes these opportunities, and we’re here to help you open the doors to your dreams, wherever they may be. </br>
+    <p>The world we live in today has presented us with new challenges, and new opportunities. The team at Hoya recognizes these opportunities, and we’re here to help you open the doors to your dreams, wherever they may be.
+      </br>
 
       Designed with you in mind, the Hoya team has revolutionized the home-finding experience, making it easier to navigate than ever before. With just a few clicks, we’ll tell you what your current house or apartment is worth, and give you access to
-      millions of dream homes around the globe. </br>
+      millions of dream homes around the globe. 
+      </br>
 
       Try Hoya, we’ll get you home. </br>
     </p>
-    <a class="story-button" style="text-decoration: none;" href="{{ url_for('main.listingsQuery') }}">find it!</a>
+    <a class="story-button" style="text-decoration: none;" href="{{ url_for('main.listingsQuery') }}">Find It!</a>
   </div>
 </div>
 {% include 'footer.html' %} {%endblock%}

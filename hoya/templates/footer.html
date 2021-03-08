@@ -2,10 +2,10 @@
 <link href="{{ url_for('static', filename='styles/footer.css') }}" rel="stylesheet">{% endblock %}  {% include 'modal.html' %}
 <div class="row fixed-bottom  footer-link-container">
     <footer>
+        <a class="footer-link" data-toggle="modal" data-target="#addHouse">Sell a House</a>
+        <a class="footer-link" href="{{ url_for('main.listingsQuery') }}">View Listings</a>
         <a class="footer-link" href="{{ url_for('main.landingPage') }}">Home</a>
         <a class="footer-link" href="{{ url_for('main.aboutPage') }}">About</a>
         <a class="footer-link" href="{{ url_for('main.contactUs') }}">Contact</a>
-        <a class="footer-link" href="{{ url_for('main.listingsQuery') }}">View Listings</a>
-        <a class="footer-link" data-toggle="modal" data-target="#addHouse">Sell a House</a>
     </footer>
 </div>{% endblock Footer%}
