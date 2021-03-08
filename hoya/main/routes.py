@@ -50,13 +50,7 @@ def listingsPage(city, stateCode=None):
     """Display listings by location to user."""
     try:
         # Retrieve listings from Hoya database
-        listings = list(db.listings.find())
-
-        # initialize listings list
-        # find our listings from our database based on the city we get
-        # from the search form
-        # add to query to filter: {"address": {"city": city}}
-        print(f"Listings after appending db query: {listings}")
+        listings = list(db.listings.find({"address": {"city": city}}))
 
         # Retrieve listings from external (realtor) API
         url = os.getenv("API_URL")
@@ -158,8 +152,6 @@ def newListing():
         # Call insert_one on listings collection
         # insert newListing
         insertedListing = db.listings.insert_one(newListing)
-        # Remove print statements after testing
-        print(f"Inserted successfully! {newListing}")
         # Redirect back to landing page
         # TODO: redirect to listings page
         return redirect(
