@@ -33,11 +33,11 @@
     align-items: center;
 }
 
-.HoyaJumbo h6 {
+.HoyaJumbo p {
     font-size: 3vh;
+    line-height: 5vh;
     text-align: center;
-    font-weight: 300;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: futura;
     font-style: normal;
     color: #F4FCEF;
     background-color:  rgba(0, 0, 0, 0.75);
@@ -89,6 +89,8 @@
     color: white;
     border-radius: 25px;
     background-color: rgba(29, 99, 117, 0.89);
+    font-family: futura;
+    font-style: normal;
 }
 
 .story h1 {
@@ -111,20 +113,21 @@
 .story-button {
     height: fit-content;
     width: max-content;
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
     font-size: 2vh;
     background-color:#7D9870;
     border: none;
     padding: 2%;
-
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.637), 0 8.5px 25px 0 rgba(0, 0, 0, 0.19);
 }
 
 .story-button:hover {
+    transition-duration: 0.4s;
     background-color: #4E5F46;
     color: white;
     text-decoration: none;
-
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media only screen and (max-device-width: 1366px) {
@@ -295,9 +298,10 @@ footer {
 }
 
 @media only screen and (max-width : 414px) {
-    .HoyaJumbo h6 {
+    .HoyaJumbo p {
         width: 100vw;
-        line-height: 25px;
+        line-height: 50px;
+        font-size: 3vh;
     }
 }
 

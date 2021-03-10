@@ -1,24 +1,55 @@
 {% extends 'base.html' %}{% block head %}
-<link href="{{ url_for('static', filename='styles/navbar.css') }}" rel="stylesheet">{% endblock %} {% block content %} {% include 'modal.html' %}
+<link href="{{ url_for('static', filename='styles/navbar.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %} 
+{% block javascript %}
+<script>
+    function showNav() {
+    var x = document.getElementById("homeLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
+{% endblock %} 
+{% block content %} {% include 'modal.html' %}
 <div class="row">
+    <div class="drawer">
+        <input type="checkbox">
+        <span class="drawer__name">
+            <span><strong>
+                <img src="https://img.icons8.com/ios-glyphs/32/000000/house-with-a-garden.png" />
+            </strong></span>
+            <!-- <span class="drawer__arrow">></span> -->
+        </span>
+        <ul class="drawer__content">
+            <li>Bruised</li>
+            <li>Green</li>
+            <li>Perfect</li>
+        </ul>
+    </div>
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid nav-con">
+        <div class="container-fluid">
             <h2 class="navbar-brand col">
-                <a href="{{ url_for('main.landingPage') }}"> <button class="navbar-btn">
+                <a href="{{ url_for('main.landingPage') }}"> <button class="navbar-brand-logo ">
                     <img src="https://img.icons8.com/ios-glyphs/32/000000/house-with-a-garden.png" />
                     </button>
                 </a>
             </h2>
-            <a  href="{{ url_for('main.listingsQuery') }}"> <button class="navbar-btn">
-                
-                <img src="https://img.icons8.com/android/32/000000/search.png"/>
+            <div class="nav-links">
+                <a   href="{{ url_for('main.listingsQuery') }}"> <button  class="navbar-btn btn-outline-secondary">
+                    <img src="https://img.icons8.com/android/24/000000/search.png"/>
+                    </button>
+                </a>
+                <a  data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" ><button class="navbar-btn " >
+                    <img src="https://img.icons8.com/windows/32/000000/sell-property.png"/>
                 </button>
-            </a>
-            <a  data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" ><button class="navbar-btn">
-                <img src="https://img.icons8.com/windows/32/000000/sell-property.png"/>
-            </button>
-            </a>
+                </a>
+            </div>
         </div>
     </nav>
+    
 </div>
 {%endblock%}

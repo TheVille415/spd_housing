@@ -32,7 +32,6 @@ form {
 
 
 .search-bar[type=text] {
-    padding-left: 16px;
     font-size: 2vh;
     border: none;
     margin-top: 0;
@@ -48,7 +47,7 @@ form {
     font-size: 2vh;
     border: none;
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 5px;
     width: 10vw;
     height: 7vh;
 }
