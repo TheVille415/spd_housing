@@ -2,12 +2,12 @@
     margin-bottom: 15px;
 }
 
-.form>.modal {
+/* .form>.modal {
     width: 50%;
     background-color: rgba(0, 0, 0, 0.158);
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .contactContainer {
     padding: 20%;
@@ -15,7 +15,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 95vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -24,24 +24,20 @@
 }
 
 .contactInfoHeader {
-    height: 600px;
-    width: 600px;
-    padding: 30px 20px 50px 20px;
-    border-radius: 145% 0 145% 165%;
-    transform: rotate(-45deg);
-    transform-origin: center;
+    height: max-content;
+    width: 100vw;
     background-color: rgba(0, 0, 0, 0.13);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: 10%;
+    padding: 5%;
+    border-radius: 25px;
 }
 
 .straightened-form {
     height: 70%;
     width: 70%;
-    transform: rotate(45deg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +46,16 @@
 }
 
 .straightened-form h1 {
-    font-size: 40px;
+    font-size: 24px;
+}
+.straightened-form label {
+    font-size: 14px;
+    color: #F4FCEF;
+}
+
+::placeholder {
+    font-size: 12px;
+    color: #F4FCEF;
 }
 
 #contact-us {
@@ -64,6 +69,13 @@
     font-size: 1em;
     margin-top: 5%;
     border: thin;
+    background-color: #30CB00;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.637), 0 8.5px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+#contact-us button:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.637), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 #contact-us input {

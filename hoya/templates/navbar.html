@@ -22,12 +22,11 @@
             <span><strong>
                 <img src="https://img.icons8.com/ios-glyphs/32/000000/house-with-a-garden.png" />
             </strong></span>
-            <!-- <span class="drawer__arrow">></span> -->
         </span>
         <ul class="drawer__content">
-            <li>Bruised</li>
-            <li>Green</li>
-            <li>Perfect</li>
+            <li><a href="{{ url_for('main.landingPage') }}">Home</a></li>
+            <li><a href="{{ url_for('main.listingsQuery') }}" >View Listings</a></li>
+            <li data-toggle="modal" style="text-decoration:none; outline: none;" data-target="#addHouse" >Sell a House</li>
         </ul>
     </div>
     <nav class="navbar navbar-expand-lg fixed-top">
